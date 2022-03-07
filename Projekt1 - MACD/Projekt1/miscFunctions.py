@@ -1,21 +1,15 @@
-import csv
-
-# pobranie danych o cenie akcji z pliku csv
 import matplotlib.pyplot as plt
 import datetime as dt
 import matplotlib.dates as mdates
+import pandas as pd
 
 
 def importCSVData(filepath):
-    file = open(filepath, 'r')
-    values = []
-    dates = []
-    next(file)
-    reader = csv.reader(file)
-    for line in reader:
-        values.append(float(line[4]))
-        dates.append(line[0])
-
+    #file = open(filepath, 'r')
+    column_names = ['Data', 'Zamkniecie']
+    df = pd.read_csv(filepath, usecols=column_names)
+    values = df.Zamkniecie.to_list()
+    dates = df.Data.to_list()
     return dates, values
 
 
@@ -33,7 +27,7 @@ def drawPlot(filepath):
     # wygląd wykresu
 
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%d-%m-%Y'))
-    plt.gca().xaxis.set_major_locator(mdates.MonthLocator())
+    plt.gca().xaxis.set_major_locator(mdates.MonthLocator(interval=3))
 
     plt.title("Asseco Poland SA", fontsize=50)
     plt.xlabel("Data", fontsize=30)
