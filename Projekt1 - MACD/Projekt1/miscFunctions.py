@@ -5,7 +5,6 @@ import pandas as pd
 
 
 def importCSVData(filepath):
-    #file = open(filepath, 'r')
     column_names = ['Data', 'Zamkniecie']
     df = pd.read_csv(filepath, usecols=column_names)
     values = df.Zamkniecie.to_list()
@@ -13,11 +12,13 @@ def importCSVData(filepath):
     return dates, values
 
 
-def drawPlot(filepath):
-    dates, values = importCSVData(filepath)
+def drawPlot(dates,values, ema):
+    # dates, values = importCSVData(filepath)
     dates = [dt.datetime.strptime(d, '%Y-%m-%d').date() for d in dates]
 
-    plt.plot(dates, values, color ='r')
+    plt.plot(dates, values, color ='r', label='cena udziałów')
+    emaN = len(dates) - len(ema)
+    plt.plot(dates[emaN:], ema, color='b',label='EMA')
 
     # ustawiamy rozmiar wykresu
     fig = plt.gcf()
@@ -37,5 +38,4 @@ def drawPlot(filepath):
     plt.grid()
     plt.savefig('Graphs/asseco.png')
     plt.show()
-
 
