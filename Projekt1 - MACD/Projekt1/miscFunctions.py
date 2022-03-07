@@ -12,13 +12,13 @@ def importCSVData(filepath):
     return dates, values
 
 
-def drawPlot(dates,values, ema):
+def drawPlot(dates, values, ema1):
     # dates, values = importCSVData(filepath)
     dates = [dt.datetime.strptime(d, '%Y-%m-%d').date() for d in dates]
 
-    plt.plot(dates, values, color ='r', label='cena udziałów')
-    emaN = len(dates) - len(ema)
-    plt.plot(dates[emaN:], ema, color='b',label='EMA')
+    plt.plot(dates, values, color ='r', label='Cena udziałów')
+    emaN = len(dates) - len(ema1)
+    plt.plot(dates[emaN:], ema1, color='b', label="$EMA_{" + str(emaN) + "}$")
 
     # ustawiamy rozmiar wykresu
     fig = plt.gcf()
@@ -36,6 +36,8 @@ def drawPlot(dates,values, ema):
     plt.xticks(fontsize=18)
     plt.yticks(fontsize=18)
     plt.grid()
+    plt.legend(loc=2,prop={'size':30})
+
     plt.savefig('Graphs/asseco.png')
     plt.show()
 
