@@ -11,17 +11,37 @@ def importCSVData(filepath):
     dates = df.Data.to_list()
     return dates, values
 
-
-def drawPlot(dates, values, ema1, ema2):
+def calculateMACD(ema12, ema26):
+    # bedzie zwracac MACD ( i moze SIGNAL??)
+    pass
+# potrzebna jeszcze funckja do obliczenia SIGNAL
+# do rysowania wykresu SIGNAL i MACD
+def drawMainPlot(dates, values, ema1, ema2):
     dates = [dt.datetime.strptime(d, '%Y-%m-%d').date() for d in dates]
+    # od 26 poniewaz dla pierwszych 26 elementow nie policzymy MACD
 
-    plt.plot(dates, values, color ='r', label='Cena udziałów')
+    plt.plot(dates[26:], values[26:], color ='r', label='Cena udziałów')
     ema1period = len(dates) - len(ema1)
-    plt.plot(dates[ema1period:], ema1, color='b', label="$EMA_{" + str(ema1period) + "}$")
-
     ema2period = len(dates) - len(ema2)
-    plt.plot(dates[ema2period:], ema2, color='g', label="$EMA_{" + str(ema2period) + "}$" )
+
+    # to jest chwilowe rozwiązanie zahardkodowane - to bedzie sie znajdowac w funkcji calculateMACD
+    # drawPlot - > ma tylko rysowac wykres wartosci akcji
+    plt.plot(dates[26:], ema1[14:], color='b', label="$EMA_{" + str(ema1period) + "}$")
+
+
+    plt.plot(dates[26:], ema2, color='g', label="$EMA_{" + str(ema2period) + "}$" )
     # ustawiamy rozmiar wykresu
+
+    # liczymy MACD
+
+    #macd =[]
+
+    # zakładamy że ema1 jest ema o krótszym okresie - mamy więcej rekordów
+    #for i in range(len(ema2)):
+     #   macd.append(ema1[i] - ema2[i])
+
+    #plt.plot(dates[ema2period:], macd, color='y',label="MACD", linewidth=2)
+
     fig = plt.gcf()
     fig.set_size_inches(30, 15)
     fig.set_dpi(50)

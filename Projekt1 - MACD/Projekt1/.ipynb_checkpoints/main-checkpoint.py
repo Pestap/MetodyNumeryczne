@@ -10,5 +10,5 @@ import matplotlib.dates as mdates
 
 csvFilepath = 'asseco.csv'
 
-miscFunctions.drawPlot(csvFilepath)
+miscFunctions.drawMainPlot(csvFilepath)
 
