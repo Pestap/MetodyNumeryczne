@@ -12,13 +12,15 @@ def importCSVData(filepath):
     return dates, values
 
 
-def drawPlot(dates, values, ema1):
+def drawPlot(dates, values, ema1, ema2):
     dates = [dt.datetime.strptime(d, '%Y-%m-%d').date() for d in dates]
 
     plt.plot(dates, values, color ='r', label='Cena udziałów')
-    emaN = len(dates) - len(ema1)
-    plt.plot(dates[emaN:], ema1, color='b', label="$EMA_{" + str(emaN) + "}$")
+    ema1period = len(dates) - len(ema1)
+    plt.plot(dates[ema1period:], ema1, color='b', label="$EMA_{" + str(ema1period) + "}$")
 
+    ema2period = len(dates) - len(ema2)
+    plt.plot(dates[ema2period:], ema2, color='g', label="$EMA_{" + str(ema2period) + "}$" )
     # ustawiamy rozmiar wykresu
     fig = plt.gcf()
     fig.set_size_inches(30, 15)

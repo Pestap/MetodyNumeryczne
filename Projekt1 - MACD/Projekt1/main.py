@@ -24,4 +24,4 @@ csvFilepath = 'asseco.csv'
 dates, values = miscFunctions.importCSVData(csvFilepath)
 ema12 = calculateEMA(12, values)
 ema26 = calculateEMA(26,values)
-miscFunctions.drawPlot(dates, values, ema26)
+miscFunctions.drawPlot(dates, values, ema12,ema26)
