@@ -13,7 +13,6 @@ def importCSVData(filepath):
 
 
 def drawPlot(dates, values, ema1):
-    # dates, values = importCSVData(filepath)
     dates = [dt.datetime.strptime(d, '%Y-%m-%d').date() for d in dates]
 
     plt.plot(dates, values, color ='r', label='Cena udziałów')
