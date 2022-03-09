@@ -1,27 +1,23 @@
-import matplotlib
+
 
 import miscFunctions
-import numpy as np
-import datetime as dt
-import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
 
-def calculateEMA(periods, values):
-    result = []
-    alfa = 2/(periods+1)
-    for i in range(periods, len(values)):
-        upper = 0
-        lower = 0
-        for j in range(periods+1):
-            upper += (1-alfa)**j * values[i-j]
-            lower += (1-alfa)**j
-        result.append(upper/lower)
-    return result
 
-# narysowanie wykresu
 
+# definicja plików wejsciowych i nazwy indeksu ktory bedziemy analziowac
 csvFilepath = 'asseco.csv'
+indexname = 'Asseco Poland SA'
+
+# pobranie danych z pliku csv
 dates, values = miscFunctions.importCSVData(csvFilepath)
-ema12 = calculateEMA(12, values)
-ema26 = calculateEMA(26,values)
-miscFunctions.drawMainPlot(dates, values, ema12, ema26)
+
+#obliczenie srednich kroczacych ema12 i ema26
+ema12 = miscFunctions.calculateMovingAverage(12, values)
+ema26 = miscFunctions.calculateMovingAverage(26, values)
+
+#obliczenie macd i signal dla podanych srednich kroczacych
+macd, signal = miscFunctions.calculateMACDandSignal(ema12, ema26)
+
+# utworzenie wykresu
+miscFunctions.drawMainPlot(dates, values, macd, signal, indexname)
+

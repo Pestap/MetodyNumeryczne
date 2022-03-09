@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import datetime as dt
-import matplotlib.dates as mdates
 import pandas as pd
+import numpy as np
 
 
 def importCSVData(filepath):
@@ -11,54 +11,81 @@ def importCSVData(filepath):
     dates = df.Data.to_list()
     return dates, values
 
-def calculateMACD(ema12, ema26):
-    # bedzie zwracac MACD ( i moze SIGNAL??)
-    pass
+def calculateMovingAverage(periods, values):
+    result = []
+    alfa = 2/(periods+1)
+    for i in range(periods, len(values)):
+        upper = 0
+        lower = 0
+        for j in range(periods+1):
+            upper += (1-alfa)**j * values[i-j]
+            lower += (1-alfa)**j
+        result.append(upper/lower)
+    return result
+
+def calculateMACDandSignal(ema12, ema26):
+    macd = []
+    for i in range(len(ema26)):
+        # + 14 ponieważ EMA12 jest o 14 dluzsze
+        macd.append(ema12[i+14] - ema26[i])
+    signal = calculateMovingAverage(9, macd)
+    return macd, signal
+
+
 # potrzebna jeszcze funckja do obliczenia SIGNAL
 # do rysowania wykresu SIGNAL i MACD
-def drawMainPlot(dates, values, ema1, ema2):
+def drawMainPlot(dates, values, macd, signal, indexname):
     dates = [dt.datetime.strptime(d, '%Y-%m-%d').date() for d in dates]
-    # od 26 poniewaz dla pierwszych 26 elementow nie policzymy MACD
+    # od 26 poniewaz dla pierwszych 26 elementow nie policzymy MACD (wymaga EMA26)
 
-    plt.plot(dates[26:], values[26:], color ='r', label='Cena udziałów')
-    ema1period = len(dates) - len(ema1)
-    ema2period = len(dates) - len(ema2)
+    fig, (ax1,ax2) = plt.subplots(2, sharex=True)
 
-    # to jest chwilowe rozwiązanie zahardkodowane - to bedzie sie znajdowac w funkcji calculateMACD
-    # drawPlot - > ma tylko rysowac wykres wartosci akcji
-    plt.plot(dates[26:], ema1[14:], color='b', label="$EMA_{" + str(ema1period) + "}$")
+    # dziwne początki pozwalają na rozpoczęcie 3 linii jednocześnie
+    # w pierwszym można usunąc oba
+    # w drugim dates[26:], macd
+    # trzeci musi zostać
+    ax1.plot(dates[35:], values[35:], color='#000066', label='Cena udziałów', linewidth =1.2)
+    ax2.plot(dates[35:], macd[9:], color='b', label="MACD", linewidth=0.8)
+    ax2.plot(dates[35:], signal, color='r', label="SIGNAL", linewidth=0.8)
 
-
-    plt.plot(dates[26:], ema2, color='g', label="$EMA_{" + str(ema2period) + "}$" )
-    # ustawiamy rozmiar wykresu
-
-    # liczymy MACD
-
-    #macd =[]
-
-    # zakładamy że ema1 jest ema o krótszym okresie - mamy więcej rekordów
-    #for i in range(len(ema2)):
-     #   macd.append(ema1[i] - ema2[i])
-
-    #plt.plot(dates[ema2period:], macd, color='y',label="MACD", linewidth=2)
-
-    fig = plt.gcf()
+    # rozmiar wykresu
     fig.set_size_inches(30, 15)
     fig.set_dpi(50)
 
+    # tytuł wykresu
+    fig.suptitle(indexname, fontsize=40)
+
+
+    #ustawienie znaczników na osi X
+    tickinterval = int(len(signal)/20)
+    ax1.set_xticks(dates[::tickinterval])
+    plt.xticks(rotation=25)
+
+    #usunięcie marginesów
+    ax1.margins(x=0)
+
     # wygląd wykresu
+    plt.xlabel("Data", fontsize=20, loc="left")
 
-    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%d-%m-%Y'))
-    plt.gca().xaxis.set_major_locator(mdates.MonthLocator(interval=3))
+    ax1.set_title("Wartość udziałów", fontsize=20)
+    ax1.set_ylabel("Cena", fontsize=18)
 
-    plt.title("Asseco Poland SA", fontsize=50)
-    plt.xlabel("Data", fontsize=30)
-    plt.ylabel("Wartość akcji", fontsize=30)
-    plt.xticks(fontsize=18)
-    plt.yticks(fontsize=18)
-    plt.grid()
-    plt.legend(loc=2,prop={'size':30})
+    ax2.set_title("MACD oraz Signal", fontsize=20)
+    ax2.set_ylabel("Wartość", fontsize=18)
+    plt.tick_params('y', labelsize=14)
+    plt.tick_params('x', labelsize=14)
 
-    plt.savefig('Graphs/asseco.png')
+    ax1.legend(loc=2, prop={'size': 20})
+    ax2.legend(loc=2, prop={'size': 20})
+
+    # kratka
+    ax1.grid()
+    ax2.grid()
+
+    #zapis w katalogu graphs
+    resultpath = "Graphs/" + indexname + ".png"
+    plt.savefig(resultpath)
+
+    #wyswietlenie wykresu
     plt.show()
 
