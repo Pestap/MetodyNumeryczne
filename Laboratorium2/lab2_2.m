@@ -2,8 +2,8 @@
 
 
 a = 1;
-r_max = a/10;
-n_max = 10000;
+r_max = a/4;
+n_max = 1000;
 
 X = 0;
 Y = 0;
@@ -62,6 +62,7 @@ while n < n_max
         axis equal
         hold on
         fprintf(1, ' %s%5d%s%.3g\r ', 'n =',  n, ' S = ', area);
+        pause(0.01);
     end
 
 end
