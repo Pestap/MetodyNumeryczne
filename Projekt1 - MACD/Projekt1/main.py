@@ -5,8 +5,8 @@ import miscFunctions
 
 
 # definicja plików wejsciowych i nazwy indeksu ktory bedziemy analziowac
-csvFilepath = 'asseco.csv'
-indexname = 'Asseco Poland SA'
+csvFilepath = 'ORLEN.csv'
+indexname = 'PKN ORLEN'
 
 # pobranie danych z pliku csv
 dates, values = miscFunctions.importCSVData(csvFilepath)
