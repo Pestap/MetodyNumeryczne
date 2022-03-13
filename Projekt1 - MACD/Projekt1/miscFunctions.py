@@ -48,6 +48,30 @@ def drawMainPlot(dates, values, macd, signal, indexname):
     ax2.plot(dates[35:], macd[9:], color='b', label="MACD", linewidth=0.8)
     ax2.plot(dates[35:], signal, color='r', label="SIGNAL", linewidth=0.8)
 
+    # zaczynamy od 1 bo będziemy sprawdzać poprzedni
+    sellPoints = []
+    buyPoints = []
+    for i in range(1, len(signal)):
+        if signal[i] == macd[i+9]:
+            ax1.axvline(dates[i+35])
+            continue
+        else:
+            prevDifference = macd[i-1+9] - signal[i-1]
+            currentDifference = macd[i+9] - signal[i]
+            if prevDifference >= 0 and currentDifference <= 0:
+                # moment sprzedarzy
+                sellPoints.append(dates[i+35])
+            elif prevDifference <= 0 and currentDifference >=0:
+                # moment kupna
+                buyPoints.append(dates[i+35])
+
+
+    for i in sellPoints:
+        ax1.axvline(i, linewidth=0.75, color='r', linestyle='dashed')
+    for i in buyPoints:
+        ax1.axvline(i, linewidth=0.75, color='g', linestyle='dashed')
+
+
     # rozmiar wykresu
     fig.set_size_inches(30, 15)
     fig.set_dpi(50)
