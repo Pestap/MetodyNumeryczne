@@ -32,6 +32,23 @@ def calculateMACDandSignal(ema12, ema26):
     return macd, signal
 
 
+def calculateBuyAndSellPoints(dates, macd, signal):
+    sellPoints = []
+    buyPoints = []
+    for i in range(1, len(signal)):
+
+        prevDifference = macd[i - 1 + 9] - signal[i - 1]
+        currentDifference = macd[i + 9] - signal[i]
+
+        if prevDifference >= 0 and currentDifference <= 0:
+            # moment sprzedarzy
+            sellPoints.append(dates[i + 35])
+        elif prevDifference <= 0 and currentDifference >= 0:
+            # moment kupna
+            buyPoints.append(dates[i + 35])
+    return buyPoints, sellPoints
+
+
 # potrzebna jeszcze funckja do obliczenia SIGNAL
 # do rysowania wykresu SIGNAL i MACD
 def drawMainPlot(dates, values, macd, signal, indexname):
@@ -49,21 +66,7 @@ def drawMainPlot(dates, values, macd, signal, indexname):
     ax2.plot(dates[35:], signal, color='r', label="SIGNAL", linewidth=0.8)
 
     # zaczynamy od 1 bo będziemy sprawdzać poprzedni
-    sellPoints = []
-    buyPoints = []
-    for i in range(1, len(signal)):
-        if signal[i] == macd[i+9]:
-            ax1.axvline(dates[i+35])
-            continue
-        else:
-            prevDifference = macd[i-1+9] - signal[i-1]
-            currentDifference = macd[i+9] - signal[i]
-            if prevDifference >= 0 and currentDifference <= 0:
-                # moment sprzedarzy
-                sellPoints.append(dates[i+35])
-            elif prevDifference <= 0 and currentDifference >=0:
-                # moment kupna
-                buyPoints.append(dates[i+35])
+    buyPoints, sellPoints = calculateBuyAndSellPoints(dates, macd, signal)
 
 
     for i in sellPoints:
