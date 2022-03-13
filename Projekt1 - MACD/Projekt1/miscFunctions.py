@@ -46,6 +46,7 @@ def calculateBuyAndSellPoints(dates, macd, signal):
         elif prevDifference <= 0 and currentDifference >= 0:
             # moment kupna
             buyPoints.append(dates[i + 35])
+
     return buyPoints, sellPoints
 
 
