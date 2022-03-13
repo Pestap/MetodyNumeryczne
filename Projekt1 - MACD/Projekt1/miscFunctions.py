@@ -74,6 +74,9 @@ def drawMainPlot(dates, values, macd, signal, indexname):
     for i in buyPoints:
         ax1.axvline(i, linewidth=0.75, color='g', linestyle='dashed')
 
+    # legendy do linii kupna i sprzedaży
+    ax1.plot([], [], 'r--', label='Sell')
+    ax1.plot([], [], 'g--', label='Buy')
 
     # rozmiar wykresu
     fig.set_size_inches(30, 15)
