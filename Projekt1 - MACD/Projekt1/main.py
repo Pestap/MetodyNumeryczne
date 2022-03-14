@@ -21,8 +21,8 @@ def sellShares(sharePrice, capital, shares):
             break
     return capital, shares
 # definicja plików wejsciowych i nazwy indeksu ktory bedziemy analziowac
-csvFilepath = 'CDP.csv'
-indexname = 'CD PROJEKT RED'
+csvFilepath = 'WIG20.csv'
+indexname = 'WIG20'
 
 # pobranie danych z pliku csv
 dates, values = miscFunctions.importCSVData(csvFilepath)
@@ -41,7 +41,7 @@ miscFunctions.drawMainPlot(dates, values, macd, signal, indexname)
 
 # algorytm kupowania
 
-start = 1000
+start = 1000000
 shares = 0
 # od 35 poniewaz od 35 daty zaczynają sięwszystkie wskaźniki
 for i in range(1, len(signal)):
@@ -50,9 +50,9 @@ for i in range(1, len(signal)):
 
 
     if currentDifference > 0 and prevDifference < 0:
-        start,shares = buyShares(values[i+35], start, shares)
+        start, shares = buyShares(values[i+35], start, shares)
     elif currentDifference < 0 and prevDifference > 0:
-        start,shares = sellShares(values[i+35], start, shares)
+        start, shares = sellShares(values[i+35], start, shares)
 
 # sprzedajemy ostatniego dnia analizy całą resztę
 start += shares*values[-1]
