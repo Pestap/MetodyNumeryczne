@@ -41,8 +41,8 @@ miscFunctions.drawMainPlot(dates, values, macd, signal, indexname)
 
 # algorytm kupowania
 
-start = 1000000
-shares = 0
+start = 0
+shares = 1000
 # od 35 poniewaz od 35 daty zaczynają sięwszystkie wskaźniki
 for i in range(1, len(signal)):
     prevDifference = macd[i - 1 + 9] - signal[i - 1]
