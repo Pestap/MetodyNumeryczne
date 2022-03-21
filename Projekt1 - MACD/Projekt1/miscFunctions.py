@@ -115,6 +115,7 @@ def drawMainPlot(dates, values, macd, signal, indexname):
 
     #zapis w katalogu graphs
     resultpath = "Graphs/" + indexname + ".png"
+    plt.tight_layout(pad=8)
     plt.savefig(resultpath)
 
     #wyswietlenie wykresu
