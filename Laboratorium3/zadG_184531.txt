@@ -1,3 +1,3 @@
 Z wyników obliczeń można wywnioskować, że w przypadku tej macierzy metody Jacobi'ego i Gaussa-Seidela nie zbiegają się.
-Jest to spowodowane własnościami macierzy M. Dodatkowo możemy zauważyć, że metoda Gaussa-Seidela jest wolniejsza - czas jej wykonania wynosi 90 sekund,
+Jest to spowodowane własnościami macierzy M - może nie być ona diagonalnie dominująca. Dodatkowo możemy zauważyć, że metoda Gaussa-Seidela jest wolniejsza - czas jej wykonania wynosi 90 sekund,
 podczas gdy operator '\' oraz metoda Jacobi'ego rozwiązują układ w mniej niż sekundę.

@@ -1,7 +1,0 @@
-N =10;
-d= 0.85;
-
-
-B = sparse(Edges(2,:), Edges(1,:), 1, N, N);
-
-L=sum(B).

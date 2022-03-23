@@ -1,8 +1,2 @@
-Wnioski:
-- metoda Gaussa-Seidela potrzebuje mniej iteracji niż metoda Jacobi'ego
-- metoda Jacobi'ego w przypadku naszych obliczeń jest szybsza
-
-Jest to spowodowane faktem, że obliczeniam które musimy wykonać w każdej iteracji metody Gaussa-Seidela są bardziej skomplikowane,
-niż w przypadku metody Jacobi'ego. W metodzie G-S są to: mnożenie macierzy przez wektor oraz rozwiązanie układu równań liniowych, 
-w metodzie Jacobi'ego natomiast dokonujemy tylko mnożenia macierzy (układ równań, który msuimy policzyć, jest taki sam w każdej iteracji,
-więc wystarczy, że policzymy go tylko raz). Metoda Jacobi'ego jest również lepszym kandydatem do zrównoleglenia.
+Obie metody zajmują podobne ilości czasu, jednak metoda Jacobi'ego wymaga ok. 2 raazy więcej iteracji do osiągnięcia
+zadowalającego wyniku. Iteracje w metodzie Gaussa-Seidela są jednak bardziej kosztowne i zwykle to ona trwa dłużej.

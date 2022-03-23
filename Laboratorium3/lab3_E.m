@@ -1,13 +1,13 @@
 %zadanie A
 
 NArr = [500 1000 3000 6000 12000];
-density = 3;
+density = 10;
 indeks = 184531;
 
 numberOfIterations = [];
 timesElapsed = [];
 resNormsArr = [];
-figure('Name', "Norma wektora residuum dla różnych N");
+
 for N = NArr
     resNorms = [];
     iterations = [];
@@ -52,15 +52,17 @@ for N = NArr
     end
     timesElapsed(end + 1) = toc;
     numberOfIterations(end+1) = counter;
-    semilogy(iterations, resNorms);
-    title("Norma residuum dla różnych N w metodzie Jacobi'ego");
-    xlabel("Liczba iteracji");
-    ylabel("Norma wektora residuum");
-    hold on;
+    if N == 1000
+        figure('Name', "Norma wektora residuum");
+        semilogy(iterations, resNorms);
+        grid on
+        title("Norma residuum dla różnych N w metodzie Jacobi'ego dla N = 1000");
+        xlabel("Liczba iteracji");
+        ylabel("Norma wektora residuum");
+        saveas(gcf, "zadE_184531_3.png")
+    end
 end
-grid on;
-saveas(gcf, "zadE_184531_3.png")
-hold off;
+
 figure('Name', "Liczba iteracji");
 plot(NArr, numberOfIterations);
 grid on;
