@@ -32,8 +32,8 @@ for N = NArr
     %Gauss-Seidel - działa 
     
     D = diag(diag(M)); %tworzymy macierz złożoną tylko z elementów diagonali
-    L = tril(M) - D; %macierz trójkątna dolna, bez diagonali
-    U = triu(M) - D; %macierz trójkątna górna, bez diagonali
+    L = tril(M, -1); %macierz trójkątna dolna, bez diagonali
+    U = triu(M, 1); %macierz trójkątna górna, bez diagonali
     
     %rnJ = M\b; % do porównania wyników
     
@@ -54,7 +54,7 @@ for N = NArr
         figure('Name', "Norma wektora residuum dla różnych N");
         semilogy(iterations, resNorms);
         grid on;
-        title("Norma residuum w metodzie Gaussa-Seidela dla N = 1000");
+        title("Norma residuum w metodzie Gaussa-Seidla dla N = 1000");
         xlabel("Liczba iteracji");
         ylabel("Norma wektora residuum");
         saveas(gcf, "zadF_184531_3.png")
@@ -63,7 +63,7 @@ end
 figure('Name', "Liczba iteracji");
 plot(NArr, numberOfIterations);
 grid on;
-title("Liczba iteracji a N w metodzie Gaussa-Seidela");
+title("Liczba iteracji a N w metodzie Gaussa-Seidla");
 ylabel("Liczba iteracji");
 xlabel("Liczba stron - N")
 saveas(gcf, "zadF_184531_1.png");
@@ -71,7 +71,7 @@ saveas(gcf, "zadF_184531_1.png");
 figure('Name', "Czas obliczeń");
 plot(NArr, timesElapsed);
 grid on;
-title("Czas obliczeń a N w metodzie Gaussa-Seidela");
+title("Czas obliczeń a N w metodzie Gaussa-Seidla");
 ylabel("Czas obliczeń [s]")
 xlabel("Liczba stron - N");
 saveas(gcf, "zadF_184531_2.png");

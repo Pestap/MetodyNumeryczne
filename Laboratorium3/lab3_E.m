@@ -32,8 +32,8 @@ for N = NArr
     %Jacobi - działa 
     
     D = diag(diag(M)); %tworzymy macierz złożoną tylko z elementów diagonali
-    L = tril(M) - D; %macierz trójkątna dolna, bez diagonali
-    U = triu(M) - D; %macierz trójkątna górna, bez diagonali
+    L = tril(M, -1); %macierz trójkątna dolna, bez diagonali
+    U = triu(M, 1); %macierz trójkątna górna, bez diagonali
     
     %rnJ = M\b; % do porównania wyników
     

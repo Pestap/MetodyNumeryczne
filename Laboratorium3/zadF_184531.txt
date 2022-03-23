@@ -1,2 +1,3 @@
-Obie metody zajmują podobne ilości czasu, jednak metoda Jacobi'ego wymaga ok. 2 raazy więcej iteracji do osiągnięcia
+Obie metody zajmują podobne ilości czasu, jednak metoda Jacobi'ego wymaga ok. 2 razy więcej iteracji do osiągnięcia
 zadowalającego wyniku. Iteracje w metodzie Gaussa-Seidela są jednak bardziej kosztowne i zwykle to ona trwa dłużej.
+Natomiast iteracje metody Jacobi'ego są mniej kosztowne i łatwiej możnemy je zrównoleglić.
