@@ -38,11 +38,9 @@ for N = NArr
     %rnJ = M\b; % do porównania wyników
     
     rk = ones(N,1); % początkowa inicjalizacja wektora rk
-    
-    DLB = (D + L)\b;
-
-    counter = 0;
     tic
+    DLB = (D + L)\b;
+    counter = 0;
     while norm(M*rk - b) > 10^(-14) %sprawdzamy normee residuum
         resNorms(end +1 ) = norm(M*rk -b);
         iterations(end + 1) = counter;
@@ -56,7 +54,7 @@ for N = NArr
         figure('Name', "Norma wektora residuum dla różnych N");
         semilogy(iterations, resNorms);
         grid on;
-        title("Norma residuum dla różnych N w metodzie Gaussa-Seidela");
+        title("Norma residuum w metodzie Gaussa-Seidela dla N = 1000");
         xlabel("Liczba iteracji");
         ylabel("Norma wektora residuum");
         saveas(gcf, "zadF_184531_3.png")

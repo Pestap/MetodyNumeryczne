@@ -39,11 +39,13 @@ for N = NArr
     
     rk = ones(N,1); % początkowa inicjalizacja wektora rk
     
+
+    tic
     DLU = -D\(L+U); %obliczamy -D^-1(L+U), które występuje w każdej iteracji
     Db = D\b; % obliczamy czynnik D(-1) * b który jest stały w każdej iteracji
     
     counter = 0;
-    tic
+    
     while norm(M*rk - b) > 10^(-14) %sprawdzamy normee residuum
         resNorms(end +1 ) = norm(M*rk -b);
         iterations(end + 1) = counter;
@@ -56,7 +58,7 @@ for N = NArr
         figure('Name', "Norma wektora residuum");
         semilogy(iterations, resNorms);
         grid on
-        title("Norma residuum dla różnych N w metodzie Jacobi'ego dla N = 1000");
+        title("Norma residuum w metodzie Jacobi'ego dla N = 1000");
         xlabel("Liczba iteracji");
         ylabel("Norma wektora residuum");
         saveas(gcf, "zadE_184531_3.png")
