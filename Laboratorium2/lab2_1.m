@@ -19,3 +19,5 @@ M = I - d*B*A
 r = M\b
 
 bar(r)
+
+M
