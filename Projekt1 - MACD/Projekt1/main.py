@@ -1,45 +1,33 @@
 
 
-import miscFunctions
+import functions
 
 
-def buyShares(sharePrice, capital, shares):
-    while(True):
-        if capital >= sharePrice:
-            capital -= sharePrice
-            shares = shares + 1
-        else:
-            break
-    return capital, shares
 
-def sellShares(sharePrice, capital, shares):
-    while(True):
-        if shares > 0:
-            capital += sharePrice
-            shares = shares - 1
-        else:
-            break
-    return capital, shares
+
+
 # definicja plików wejsciowych i nazwy indeksu ktory bedziemy analziowac
-csvFilepath = 'WIG20.csv'
-indexname = 'WIG20'
+csvFilepath = 'CDP-krótki.csv'
+indexname = 'CD PROJEKT RED - 4 lata'
+
+csvFilepath = 'CSV/' + csvFilepath
 
 # pobranie danych z pliku csv
-dates, values = miscFunctions.importCSVData(csvFilepath)
+dates, values = functions.importCSVData(csvFilepath)
 
 #obliczenie srednich kroczacych ema12 i ema26
-ema12 = miscFunctions.calculateMovingAverage(12, values)
-ema26 = miscFunctions.calculateMovingAverage(26, values)
+ema12 = functions.calculateMovingAverage(12, values)
+ema26 = functions.calculateMovingAverage(26, values)
 
 #obliczenie macd i signal dla podanych srednich kroczacych
-macd, signal = miscFunctions.calculateMACDandSignal(ema12, ema26)
+macd, signal = functions.calculateMACDandSignal(ema12, ema26)
 
 # utworzenie wykresu
-miscFunctions.drawMainPlot(dates, values, macd, signal, indexname)
+functions.drawMainPlot(dates, values, macd, signal, indexname)
 
 
 
-# algorytm kupowania
+# algorytm inwestujący
 
 start = 0
 shares = 1000
@@ -50,9 +38,9 @@ for i in range(1, len(signal)):
 
 
     if currentDifference > 0 and prevDifference < 0:
-        start, shares = buyShares(values[i+35], start, shares)
+        start, shares = functions.buyShares(values[i+35], start, shares)
     elif currentDifference < 0 and prevDifference > 0:
-        start, shares = sellShares(values[i+35], start, shares)
+        start, shares = functions.sellShares(values[i+35], start, shares)
 
 # sprzedajemy ostatniego dnia analizy całą resztę
 start += shares*values[-1]

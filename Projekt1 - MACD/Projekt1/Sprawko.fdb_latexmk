@@ -1,9 +1,9 @@
 # Fdb version 3
-["pdflatex"] 1648161953 "c:/Piotrek/Studia/4 semestr/MetodyNumeryczne/Projekt1 - MACD/Projekt1/Sprawko.tex" "Sprawko.pdf" "Sprawko" 1648161955
-  "Graphs//WIG20.png" 1647862385 428823 b2980a1590122ca8529333163bb9a080 ""
-  "Sprawko.aux" 1648161955 467 4b992f8d746fdeb1c3e6342ec5358328 "pdflatex"
-  "Sprawko.tex" 1648161952 2562 47b159350a10039e54d40b09539bc97b ""
-  "c:/Piotrek/Studia/4 semestr/MetodyNumeryczne/Projekt1 - MACD/Projekt1/Sprawko.tex" 1648161952 2562 47b159350a10039e54d40b09539bc97b ""
+["pdflatex"] 1648165298 "c:/Piotrek/Studia/4 semestr/MetodyNumeryczne/Projekt1 - MACD/Projekt1/Sprawko.tex" "Sprawko.pdf" "Sprawko" 1648165300
+  "Graphs//CD PROJEKT RED - 4 lata.png" 1648164419 282731 2b0c915ac44aeaf4254ac7a90a9d257b ""
+  "Sprawko.aux" 1648165300 723 3a7264c61db7796edb1891dd679fa4ca "pdflatex"
+  "Sprawko.tex" 1648165296 2864 ee16aadfea2bf6c6fe7ed2b924009101 ""
+  "c:/Piotrek/Studia/4 semestr/MetodyNumeryczne/Projekt1 - MACD/Projekt1/Sprawko.tex" 1648165296 2864 ee16aadfea2bf6c6fe7ed2b924009101 ""
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1647734690 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/plit.enc" 1647738991 1946 62ba825cda1ff16dbaa60d53ac60525a ""
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/plmi.enc" 1647738991 2005 f094775651a1386335c158fb632529f1 ""
@@ -61,6 +61,7 @@
   "c:/texlive/2021/texmf-dist/tex/latex/base/ot4enc.def" 1647736754 4736 6ec8196f3759b9f70a57db6398cec4c8 ""
   "c:/texlive/2021/texmf-dist/tex/latex/base/size10.clo" 1647736754 8448 96f18c76bf608a36ee6fbf021ac1dd32 ""
   "c:/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1647735424 13886 d1306dcf79a944f6988e688c1785f9ce ""
+  "c:/texlive/2021/texmf-dist/tex/latex/float/float.sty" 1647735738 6749 16d2656a1984957e674b149555f1ea1d ""
   "c:/texlive/2021/texmf-dist/tex/latex/geometry/geometry.sty" 1647735934 41601 9cf6c5257b1bc7af01a58859749dd37a ""
   "c:/texlive/2021/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1647736115 1224 978390e9c2234eab29404bc21b268d1e ""
   "c:/texlive/2021/texmf-dist/tex/latex/graphics-def/pdftex.def" 1647736116 19103 48d29b6e2a64cb717117ef65f107b404 ""
@@ -72,6 +73,7 @@
   "c:/texlive/2021/texmf-dist/tex/latex/kvoptions/kvoptions.sty" 1647736708 22521 d2fceb764a442a2001d257ef11db7618 ""
   "c:/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1647736718 29921 d0acc05a38bd4aa3af2017f0b7c137ce ""
   "c:/texlive/2021/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1647736825 678 4792914a8f45be57bb98413425e4c7af ""
+  "c:/texlive/2021/texmf-dist/tex/latex/placeins/placeins.sty" 1647738994 4087 636308456f60d2b31cbf97867db5708d ""
   "c:/texlive/2021/texmf-dist/tex/latex/polski/omlplm.fd" 1647739051 1559 a2e024b0ee8ecaa0d3016537435f2a1c ""
   "c:/texlive/2021/texmf-dist/tex/latex/polski/omsplsy.fd" 1647739051 1478 709f1d1020b26a6953dfa2a739c0f292 ""
   "c:/texlive/2021/texmf-dist/tex/latex/polski/omxplex.fd" 1647739051 1289 c085201d50568bfe8b525969526e4fd0 ""
