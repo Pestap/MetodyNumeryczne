@@ -29,7 +29,7 @@ functions.drawMainPlot(dates, values, macd, signal, indexname)
 
 # algorytm inwestujący
 
-start = 0
+cash = 0
 shares = 1000
 # od 35 poniewaz od 35 daty zaczynają sięwszystkie wskaźniki
 for i in range(1, len(signal)):
@@ -38,11 +38,17 @@ for i in range(1, len(signal)):
 
 
     if currentDifference > 0 and prevDifference < 0:
-        start, shares = functions.buyShares(values[i+35], start, shares)
+        cash, shares = functions.buyShares(values[i + 35], cash, shares)
     elif currentDifference < 0 and prevDifference > 0:
-        start, shares = functions.sellShares(values[i+35], start, shares)
+        cash, shares = functions.sellShares(values[i + 35], cash, shares)
 
 # sprzedajemy ostatniego dnia analizy całą resztę
-start += shares*values[-1]
+#cash += shares * values[-1]
 
-print("Wynik algorytmu: " + str(start))
+N = len(signal)
+
+startVal = values[35]*1000
+profit = (shares*values[-1] + cash)/N*values[36]
+print("Wynik algorytmu: " + str(profit))
+print("Na początku było: " +str(startVal))
+print("Teraz jest: " + str(shares) + " akcji po: " + str(values[-1]) + " i " + str(cash) + " gotówki")

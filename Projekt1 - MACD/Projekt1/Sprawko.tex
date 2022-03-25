@@ -46,19 +46,33 @@
         \mathit{Gdzie:} & \\
         \alpha &= \frac{2}{N + 1} \\
         N &- liczba \; okres \mathit{ó} w \\
-        p_{i} &- pr\mathit{ó}bka \; z \; i-tego \;dnia, \;p_{0}\; jest\; pr\mathit{ó}bk\mathit{ą} \;z \;aktualnego \;dnia, \;p_{N} \;to \;pr\mathit{ó}bka \;sprzed \;N \;dni.
+        p_{i} &- pr\mathit{ó}bka \; z \; i-tego \;dnia, \;p_{0}\; - \; pr\mathit{ó}bka \;z \;aktualnego \;dnia, \;p_{N} \;-\;pr\mathit{ó}bka \;sprzed \;N \;dni.
     \end{align*}
 
     Punkty, w których krzywa MACD przecina Signal od dołu są sygnałem do kupna akcji oraz zapowiadają trend wzrostowy.
     Natomiast punkty, w których MACD przecina Signal od góry, są sygnałem sprzedaży akcji i zapowiedzią trendu spadkowego. 
 
 \section{Analiza skuteczności i przykłady działania}
-    \begin{figure}[!htb]
+    \begin{figure}[H]
         \noindent\makebox[\textwidth]{\includegraphics[width=\paperwidth]{CD PROJEKT RED - 4 lata.png}}
         \caption{Wykres ceny udziałów CDR oraz obliczonych na ich podstawie MACD oraz Signal. Wykres ten składa się z ok. 900 cen zamknięcia}
     \end{figure}
 
+    Analizując powyższy wykres możemy dojść do kilku wniosków:
+    \begin{itemize}
+        \item dla powolnych zmian wskaźnik MACD jest skuteczny i pozwala osiągnąć zyski. Jest to dobrze widoczne na wykresie w okresie od 12.03.2022 do 15.05.2020 oraz na lewej części wykresu.
+        \item MACD zbyt późno reaguje na nagłe zmiany cen udziałów. Możemy to zauważyć na wykresie w okolicach 21.01.2021, kiedy wystąpił pik wartości udziałów.
+         Na pierwszy rzut oka może wydawać się, że wskaźnik zareagował prawidłowo, jednak gdy przyjrzymy się dokładniej to zauważymy, że sygnał sprzedaży jest spóźniony i znajduję się poza pikiem.
+         Wskaźnik nie nadążył za zmianą i okazja do niemałego zarobku przepadła.
+    \end{itemize}
+
+    Wskaźnik MACD jest przydatny do inwestycji w akcje stabilne, które nie ulegają częstym nagłym zmianą.
+    Dla danych przedstawionych na powyższym wykresie prosty algorytm działający jedynie na podstawie MACD
+    osiągnął niemały zysk.\% 
+   
+
     
+
 
 \section{Analiza przydatności MACD do inwestowania}
 
