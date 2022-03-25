@@ -7,8 +7,8 @@ import functions
 
 
 # definicja plików wejsciowych i nazwy indeksu ktory bedziemy analziowac
-csvFilepath = 'CDP-krótki.csv'
-indexname = 'CD PROJEKT RED - 4 lata'
+csvFilepath = 'WIG20.csv'
+indexname = 'WIG20'
 
 csvFilepath = 'CSV/' + csvFilepath
 
