@@ -1,9 +1,12 @@
 # Fdb version 3
-["pdflatex"] 1648203329 "c:/Piotrek/Studia/4 semestr/MetodyNumeryczne/Projekt1 - MACD/Projekt1/Sprawko.tex" "Sprawko.pdf" "Sprawko" 1648203332
-  "Graphs//CD PROJEKT RED - 4 lata.png" 1648202870 282731 2b0c915ac44aeaf4254ac7a90a9d257b ""
-  "Sprawko.aux" 1648203332 723 f92c07b40fea48d70a2247046ce8f6f2 "pdflatex"
-  "Sprawko.tex" 1648203328 3951 5392012f2130da33e21e017e5b0f0cb5 ""
-  "c:/Piotrek/Studia/4 semestr/MetodyNumeryczne/Projekt1 - MACD/Projekt1/Sprawko.tex" 1648203328 3951 5392012f2130da33e21e017e5b0f0cb5 ""
+["pdflatex"] 1648230845 "c:/Piotrek/Studia/4 semestr/MetodyNumeryczne/Projekt1 - MACD/Projekt1/Sprawko.tex" "Sprawko.pdf" "Sprawko" 1648230848
+  "Graphs//AnalizaCDP.png" 1648230745 32816 1ed92bc0118eb191d2a7178f9b78e9f8 ""
+  "Graphs//AnalizaCDPDługi.png" 1648206737 30039 ea4c1607f8a54b3f8b5783e1bb0c2f4d ""
+  "Graphs//AnalizaOrlen.png" 1648206895 30039 ea4c1607f8a54b3f8b5783e1bb0c2f4d ""
+  "Graphs//CD PROJEKT RED - 4 lata.png" 1648206619 282735 4676d164006de23784ea0f1036f816ca ""
+  "Sprawko.aux" 1648230848 1276 df0b2c8ac7abf5432d528dee4a404f19 "pdflatex"
+  "Sprawko.tex" 1648230843 5403 909e990af17027f7f18593007112643d ""
+  "c:/Piotrek/Studia/4 semestr/MetodyNumeryczne/Projekt1 - MACD/Projekt1/Sprawko.tex" 1648230843 5403 909e990af17027f7f18593007112643d ""
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1647734690 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/plit.enc" 1647738991 1946 62ba825cda1ff16dbaa60d53ac60525a ""
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/plmi.enc" 1647738991 2005 f094775651a1386335c158fb632529f1 ""

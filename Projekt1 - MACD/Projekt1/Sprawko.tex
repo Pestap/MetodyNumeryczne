@@ -22,7 +22,7 @@
     wyznaczać momenty kupna i sprzedaży udziałów. Wskaźnik ten składa się z dwóch krzywych: MACD oraz Signal.
     Implementacji dokonałem w języku Python z wykorzystaniem bibliotek pandas oraz matplotlib.
     Dane wejściowe to plik .csv o zawierający informacje o cenach udziałów z konkretnych dni. 
-    Jako wartość udziałów w danym dniu przyjąłem cenę zamknięcia z tego dnia. Do algorytmu obracającego akcjami podajemy ok. 1000 rekordów.
+    Jako wartość udziałów w danym dniu przyjąłem cenę zamknięcia z tego dnia. Do algorytmu obracającego akcjami podajemy dane z ok. 1000 dni.
 
 \section{Analiza zadania}
 
@@ -55,7 +55,8 @@
 \section{Analiza skuteczności i przykłady działania}
     \begin{figure}[H]
         \noindent\makebox[\textwidth]{\includegraphics[width=\paperwidth]{CD PROJEKT RED - 4 lata.png}}
-        \caption{Wykres ceny udziałów CDR oraz obliczonych na ich podstawie MACD oraz Signal. Wykres ten składa się z ok. 900 cen zamknięcia}
+        \caption{Wykres ceny udziałów CDR oraz obliczonych na ich podstawie MACD oraz Signal. Wykres ten składa się z ok. 900 cen zamknięcia.
+         W celu zachowania czytelności wykresu nie naniosłem na niego linii wyznaczających momenty kupna i sprzedaży.}
     \end{figure}
 
     Analizując powyższy wykres możemy dojść do kilku wniosków:
@@ -66,16 +67,43 @@
          Wskaźnik nie nadążył za zmianą i okazja do niemałego zarobku przepadła.
     \end{itemize}
 
-    Wskaźnik MACD jest przydatny do inwestycji w akcje stabilne, które nie ulegają częstym nagłym zmianą.
+    \newpage
+    Wskaźnik MACD jest przydatny do inwestycji w akcje stabilne, które nie ulegają częstym nagłym zmianom.
     Dla danych przedstawionych na powyższym wykresie prosty algorytm działający jedynie na podstawie MACD
-    osiągnął duży zysk- zaczynjąc z udziałami wartymi 157 700 zł, a kończąc z wartymi 219 733 zł.
+    osiągnął duży zysk - wynik
    
-
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics{AnalizaCDP.png}}
+        \caption{CDP w latach 2018-2022 - ok. 1.5 krotny zysk}
+    \end{figure}
     
 
-
+\newpage
 \section{Analiza przydatności MACD do inwestowania}
 
-    Analziując
+    Analziując zachowanie algorytmu dla różnych wejść, możemy zauważyć, że najprostszy algorytm,
+    kupujący i sprzedający udziały, nie osiąga zadowalających rezultatów. Dla niekótrych indeksów osiąga
+    bardzo dobre wyniki, ale w większości przypadków wartość naszego portfela na końcu testu jest niższa niż na początku.
+
+    
+    Efektywność algorytmu określamy jako stosunek wartości naszego portfela
+    do jego stanu po działaniu algorytmu na podstawie poniższego wzoru:
+
+    \begin{align*} 
+        zysk = \frac{\mathit{ilośćAkcji}(N) \cdot \mathit{cenaAkcji}(N) + \mathit{gotówka}(N)}{1000 \cdot \mathit{cenaAkcji}(0)}
+    \end{align*}
+
+
+    \noindent Wartość poniżej 1 będzie oznaczać stratę, a powyżej zysk.\\
+    \noindent Przykładowe wyniki:
+    %DO ZMIAN SPORYCH BO BYL ZJEBANY WZOR
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics{AnalizaCDPDługi.png}}
+        \caption{CDP w latach 2012-2022 - strata ok. 334 zł}
+    \end{figure}
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics{AnalizaOrlen.png}}
+        \caption{CDP w latach 2012-2022 - strata ok. 334 zł}
+    \end{figure}
 
 \end{document}

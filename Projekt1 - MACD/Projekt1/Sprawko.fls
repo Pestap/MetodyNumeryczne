@@ -376,6 +376,21 @@ INPUT ./Graphs//CD PROJEKT RED - 4 lata.png
 OUTPUT Sprawko.pdf
 INPUT ./Graphs//CD PROJEKT RED - 4 lata.png
 INPUT c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT ./Graphs//AnalizaCDP.png
+INPUT ./Graphs//AnalizaCDP.png
+INPUT ./Graphs//AnalizaCDP.png
+INPUT ./Graphs//AnalizaCDP.png
+INPUT ./Graphs//AnalizaCDP.png
+INPUT ./Graphs//AnalizaCDPDługi.png
+INPUT ./Graphs//AnalizaCDPDługi.png
+INPUT ./Graphs//AnalizaCDPDługi.png
+INPUT ./Graphs//AnalizaCDPDługi.png
+INPUT ./Graphs//AnalizaCDPDługi.png
+INPUT ./Graphs//AnalizaOrlen.png
+INPUT ./Graphs//AnalizaOrlen.png
+INPUT ./Graphs//AnalizaOrlen.png
+INPUT ./Graphs//AnalizaOrlen.png
+INPUT ./Graphs//AnalizaOrlen.png
 INPUT Sprawko.aux
 INPUT c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/plit.enc
 INPUT c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/plms.enc

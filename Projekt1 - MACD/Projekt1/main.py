@@ -7,8 +7,8 @@ import functions
 
 
 # definicja plików wejsciowych i nazwy indeksu ktory bedziemy analziowac
-csvFilepath = 'WIG20.csv'
-indexname = 'WIG20'
+csvFilepath = 'CDP-krótki.csv'
+indexname = 'CD PROJEKT RED'
 
 csvFilepath = 'CSV/' + csvFilepath
 
@@ -31,6 +31,7 @@ functions.drawMainPlot(dates, values, macd, signal, indexname)
 
 cash = 0
 shares = 1000
+startVal = shares*values[35] + cash
 # od 35 poniewaz od 35 daty zaczynają sięwszystkie wskaźniki
 for i in range(1, len(signal)):
     prevDifference = macd[i - 1 + 9] - signal[i - 1]
@@ -43,12 +44,10 @@ for i in range(1, len(signal)):
         cash, shares = functions.sellShares(values[i + 35], cash, shares)
 
 # sprzedajemy ostatniego dnia analizy całą resztę
-#cash += shares * values[-1]
 
-N = len(signal)
 
-startVal = values[35]*1000
-profit = (shares*values[-1] + cash)/N*values[36]
-print("Wynik algorytmu: " + str(profit))
-print("Na początku było: " +str(startVal))
-print("Teraz jest: " + str(shares) + " akcji po: " + str(values[-1]) + " i " + str(cash) + " gotówki")
+profit = (shares*values[-1] + cash)/(1000*values[36])
+print("Początkowy kapitał: 1000 akcji")
+print("Wynik algorytmu: " + str(profit) + "\nJest stosunek posiadanego kapitału do kapitału z początku działania algorytmu")
+
+
