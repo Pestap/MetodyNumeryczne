@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.20)  25 MAR 2022 18:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.20)  26 MAR 2022 23:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -316,14 +316,14 @@ LaTeX Warning: Command \' invalid in math mode on input line 50.
 
 LaTeX Warning: Command \' invalid in math mode on input line 50.
 
-<./Graphs//CD PROJEKT RED - 4 lata.png, id=1, 2168.1pt x 1084.05pt>
-File: ./Graphs//CD PROJEKT RED - 4 lata.png Graphic file (type png)
-<use ./Graphs//CD PROJEKT RED - 4 lata.png>
-Package pdftex.def Info: ./Graphs//CD PROJEKT RED - 4 lata.png  used on input line 57.
+<./Graphs//CD Projekt - 4 lata.png, id=1, 2168.1pt x 1084.05pt>
+File: ./Graphs//CD Projekt - 4 lata.png Graphic file (type png)
+<use ./Graphs//CD Projekt - 4 lata.png>
+Package pdftex.def Info: ./Graphs//CD Projekt - 4 lata.png  used on input line 57.
 (pdftex.def)             Requested size: 614.295pt x 307.13792pt.
 [1
 
-{c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2 <./Graphs//CD PROJEKT RED - 4 lata.png>]
+{c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2 <./Graphs//CD Projekt - 4 lata.png>]
 <./Graphs//AnalizaCDP.png, id=22, 489.83pt x 104.39pt>
 File: ./Graphs//AnalizaCDP.png Graphic file (type png)
 <use ./Graphs//AnalizaCDP.png>
@@ -348,30 +348,64 @@ LaTeX Warning: Command \' invalid in math mode on input line 94.
 
 LaTeX Warning: Command \' invalid in math mode on input line 94.
 
-<./Graphs//AnalizaCDPDługi.png, id=27, 469.755pt x 85.82062pt>
+<./Graphs//AnalizaCDPDługi.png, id=27, 488.32437pt x 87.32625pt>
 File: ./Graphs//AnalizaCDPDługi.png Graphic file (type png)
 <use ./Graphs//AnalizaCDPDługi.png>
-Package pdftex.def Info: ./Graphs//AnalizaCDPDługi.png  used on input line 101.
-(pdftex.def)             Requested size: 469.75386pt x 85.82039pt.
-<./Graphs//AnalizaOrlen.png, id=28, 469.755pt x 85.82062pt>
+Package pdftex.def Info: ./Graphs//AnalizaCDPDługi.png  used on input line 102.
+(pdftex.def)             Requested size: 488.32317pt x 87.32603pt.
+<./Graphs//AnalizaOrlen.png, id=28, 485.31313pt x 90.3375pt>
 File: ./Graphs//AnalizaOrlen.png Graphic file (type png)
 <use ./Graphs//AnalizaOrlen.png>
-Package pdftex.def Info: ./Graphs//AnalizaOrlen.png  used on input line 105.
-(pdftex.def)             Requested size: 469.75386pt x 85.82039pt.
-[4 <./Graphs//AnalizaCDPDługi.png> <./Graphs//AnalizaOrlen.png>] (./Sprawko.aux) ) 
+Package pdftex.def Info: ./Graphs//AnalizaOrlen.png  used on input line 107.
+(pdftex.def)             Requested size: 485.31194pt x 90.33727pt.
+<./Graphs//AnalizaWIG20.png, id=29, 485.31313pt x 90.83937pt>
+File: ./Graphs//AnalizaWIG20.png Graphic file (type png)
+<use ./Graphs//AnalizaWIG20.png>
+Package pdftex.def Info: ./Graphs//AnalizaWIG20.png  used on input line 111.
+(pdftex.def)             Requested size: 485.31194pt x 90.83914pt.
+
+LaTeX Warning: File `AnalizaAsseco2alg.png' not found on input line 122.
+
+
+c:/Piotrek/Studia/4 semestr/MetodyNumeryczne/Projekt1 - MACD/Projekt1/Sprawko.tex:122: Package pdftex.def Error: File `AnalizaAsseco2alg.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.122 ...{\includegraphics{AnalizaAsseco2alg.png}}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Trying to load font information for OT4+cmtt on input line 122.
+(c:/texlive/2021/texmf-dist/tex/latex/polski/ot4cmtt.fd
+File: ot4cmtt.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
+) [4 <./Graphs//AnalizaCDPDługi.png> <./Graphs//AnalizaOrlen.png> <./Graphs//AnalizaWIG20.png>]
+<./Graphs//AnalizaWig202alg.png, id=36, 495.8525pt x 111.91812pt>
+File: ./Graphs//AnalizaWig202alg.png Graphic file (type png)
+<use ./Graphs//AnalizaWig202alg.png>
+Package pdftex.def Info: ./Graphs//AnalizaWig202alg.png  used on input line 127.
+(pdftex.def)             Requested size: 495.85129pt x 111.91785pt.
+<./Graphs//AnalizaCDPKrotki2alg.png, id=37, 491.33563pt x 123.96312pt>
+File: ./Graphs//AnalizaCDPKrotki2alg.png Graphic file (type png)
+<use ./Graphs//AnalizaCDPKrotki2alg.png>
+Package pdftex.def Info: ./Graphs//AnalizaCDPKrotki2alg.png  used on input line 131.
+(pdftex.def)             Requested size: 491.33443pt x 123.96281pt.
+ [5 <./Graphs//AnalizaWig202alg.png> <./Graphs//AnalizaCDPKrotki2alg.png>] (./Sprawko.aux) ) 
 Here is how much of TeX's memory you used:
- 3502 strings out of 478276
- 57300 string characters out of 5850489
+ 3594 strings out of 478276
+ 59491 string characters out of 5850489
  357094 words of memory out of 5000000
- 21643 multiletter control sequences out of 15000+600000
- 479841 words of font info for 54 fonts, out of 8000000 for 9000
+ 21714 multiletter control sequences out of 15000+600000
+ 480641 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,9n,67p,452b,253s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/plit.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/plms.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/plrm.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/plmi.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plr17.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plti10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Sprawko.pdf (4 pages, 374314 bytes).
+ 60i,9n,67p,452b,318s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/pltt.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/plit.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/plms.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/plrm.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/plmi.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plr17.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plti10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/pl/pltt10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on Sprawko.pdf (5 pages, 446925 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
+ 96 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

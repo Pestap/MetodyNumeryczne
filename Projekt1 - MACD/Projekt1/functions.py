@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import datetime as dt
 import pandas as pd
-import numpy as np
 
 
 def importCSVData(filepath):
@@ -147,3 +146,44 @@ def sellShares(sharePrice, capital, shares):
         else:
             break
     return capital, shares
+
+def simpleAlgorithm(initial_shares, initial_balance, values, macd, signal):
+    cash = initial_balance
+    shares = initial_shares
+    for i in range(1, len(signal)):
+        prevDifference = macd[i - 1 + 9] - signal[i - 1]
+        currentDifference = macd[i + 9] - signal[i]
+
+        if currentDifference > 0 and prevDifference < 0:
+            cash, shares = buyShares(values[i + 35], cash, shares)
+        elif currentDifference < 0 and prevDifference > 0:
+            cash, shares = sellShares(values[i + 35], cash, shares)
+
+    return cash,shares
+
+
+def advancedAlgorithm(initial_shares, initial_balance, values, macd, signal):
+    cash = initial_balance
+    shares = initial_shares
+
+    last_sold_price = -1000 * values[0]
+    last_bought_price = -1000 *values[0]
+    last_bought_at = 0
+    last_sold_at =0
+    for i in range(1, len(signal)):
+        prevDifference = macd[i - 1 + 9] - signal[i - 1]
+        currentDifference = macd[i + 9] - signal[i]
+
+        if i - last_sold_at == 31:
+           last_bought_price = -1000 * values[0]
+
+        if currentDifference > 0 and prevDifference < 0:
+            cash, shares = buyShares(values[i + 35], cash, shares)
+            last_bought_price = values[i+35]
+            last_bought_at = i
+        elif currentDifference < 0 and prevDifference > 0 and values[i+35] > last_bought_price:
+            cash, shares = sellShares(values[i + 35], cash, shares)
+            last_sold_at = i
+            last_sold_price = values[i+35]
+
+    return cash,shares

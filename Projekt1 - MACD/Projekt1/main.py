@@ -4,11 +4,9 @@ import functions
 
 
 
-
-
 # definicja plików wejsciowych i nazwy indeksu ktory bedziemy analziowac
-csvFilepath = 'CDP-krótki.csv'
-indexname = 'CD PROJEKT RED'
+csvFilepath = 'PKOBP.csv'
+indexname = 'PKO BP'
 
 csvFilepath = 'CSV/' + csvFilepath
 
@@ -32,22 +30,23 @@ functions.drawMainPlot(dates, values, macd, signal, indexname)
 cash = 0
 shares = 1000
 startVal = shares*values[35] + cash
-# od 35 poniewaz od 35 daty zaczynają sięwszystkie wskaźniki
-for i in range(1, len(signal)):
-    prevDifference = macd[i - 1 + 9] - signal[i - 1]
-    currentDifference = macd[i + 9] - signal[i]
 
 
-    if currentDifference > 0 and prevDifference < 0:
-        cash, shares = functions.buyShares(values[i + 35], cash, shares)
-    elif currentDifference < 0 and prevDifference > 0:
-        cash, shares = functions.sellShares(values[i + 35], cash, shares)
-
-# sprzedajemy ostatniego dnia analizy całą resztę
-
+cash, shares = functions.simpleAlgorithm(shares, cash, values, macd, signal)
 
 profit = (shares*values[-1] + cash)/(1000*values[36])
+
+
+cash_a = 0
+shares_a = 1000
+
+cash_a,shares_a = functions.advancedAlgorithm(shares_a,cash_a,values,macd,signal)
+
+profit_a = (shares_a*values[-1] + cash_a)/(1000*values[36])
 print("Początkowy kapitał: 1000 akcji")
-print("Wynik algorytmu: " + str(profit) + "\nJest stosunek posiadanego kapitału do kapitału z początku działania algorytmu")
+print("Wynik algorytmu podstawowego: " + str(profit) + "\nJest stosunek posiadanego kapitału do kapitału z początku działania algorytmu")
+print("===== Algorytm rozszerzony =====")
+print("Początkowy kapitał: 1000 akcji")
+print("Wynik algorytmu rozszerzonego: " + str(profit_a) + "\nJest stosunek posiadanego kapitału do kapitału z początku działania algorytmu")
 
 

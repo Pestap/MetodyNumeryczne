@@ -369,18 +369,19 @@ INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/pl/plsy5.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/pl/plti10.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/pl/plti7.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/pl/plti7.tfm
-INPUT ./Graphs//CD PROJEKT RED - 4 lata.png
-INPUT ./Graphs//CD PROJEKT RED - 4 lata.png
-INPUT ./Graphs//CD PROJEKT RED - 4 lata.png
-INPUT ./Graphs//CD PROJEKT RED - 4 lata.png
+INPUT ./Graphs//CD Projekt - 4 lata.png
+INPUT ./Graphs//CD Projekt - 4 lata.png
+INPUT ./Graphs//CD Projekt - 4 lata.png
+INPUT ./Graphs//CD Projekt - 4 lata.png
 OUTPUT Sprawko.pdf
-INPUT ./Graphs//CD PROJEKT RED - 4 lata.png
+INPUT ./Graphs//CD Projekt - 4 lata.png
 INPUT c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT ./Graphs//AnalizaCDP.png
 INPUT ./Graphs//AnalizaCDP.png
 INPUT ./Graphs//AnalizaCDP.png
 INPUT ./Graphs//AnalizaCDP.png
 INPUT ./Graphs//AnalizaCDP.png
+INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/pl/plbx12.tfm
 INPUT ./Graphs//AnalizaCDPDługi.png
 INPUT ./Graphs//AnalizaCDPDługi.png
 INPUT ./Graphs//AnalizaCDPDługi.png
@@ -391,7 +392,28 @@ INPUT ./Graphs//AnalizaOrlen.png
 INPUT ./Graphs//AnalizaOrlen.png
 INPUT ./Graphs//AnalizaOrlen.png
 INPUT ./Graphs//AnalizaOrlen.png
+INPUT ./Graphs//AnalizaWIG20.png
+INPUT ./Graphs//AnalizaWIG20.png
+INPUT ./Graphs//AnalizaWIG20.png
+INPUT ./Graphs//AnalizaWIG20.png
+INPUT ./Graphs//AnalizaWIG20.png
+INPUT c:/texlive/2021/texmf-dist/tex/latex/polski/ot4cmtt.fd
+INPUT c:/texlive/2021/texmf-dist/tex/latex/polski/ot4cmtt.fd
+INPUT c:/texlive/2021/texmf-dist/tex/latex/polski/ot4cmtt.fd
+INPUT c:/texlive/2021/texmf-dist/tex/latex/polski/ot4cmtt.fd
+INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/pl/pltt10.tfm
+INPUT ./Graphs//AnalizaWig202alg.png
+INPUT ./Graphs//AnalizaWig202alg.png
+INPUT ./Graphs//AnalizaWig202alg.png
+INPUT ./Graphs//AnalizaWig202alg.png
+INPUT ./Graphs//AnalizaWig202alg.png
+INPUT ./Graphs//AnalizaCDPKrotki2alg.png
+INPUT ./Graphs//AnalizaCDPKrotki2alg.png
+INPUT ./Graphs//AnalizaCDPKrotki2alg.png
+INPUT ./Graphs//AnalizaCDPKrotki2alg.png
+INPUT ./Graphs//AnalizaCDPKrotki2alg.png
 INPUT Sprawko.aux
+INPUT c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/pltt.enc
 INPUT c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/plit.enc
 INPUT c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/plms.enc
 INPUT c:/texlive/2021/texmf-dist/fonts/enc/dvips/pl/plrm.enc
@@ -406,4 +428,5 @@ INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plr17.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plr7.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plsy10.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/pl/plti10.pfb
+INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/pl/pltt10.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb

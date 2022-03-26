@@ -54,7 +54,7 @@
 
 \section{Analiza skuteczności i przykłady działania}
     \begin{figure}[H]
-        \noindent\makebox[\textwidth]{\includegraphics[width=\paperwidth]{CD PROJEKT RED - 4 lata.png}}
+        \noindent\makebox[\textwidth]{\includegraphics[width=\paperwidth]{CD Projekt - 4 lata.png}}
         \caption{Wykres ceny udziałów CDR oraz obliczonych na ich podstawie MACD oraz Signal. Wykres ten składa się z ok. 900 cen zamknięcia.
          W celu zachowania czytelności wykresu nie naniosłem na niego linii wyznaczających momenty kupna i sprzedaży.}
     \end{figure}
@@ -70,7 +70,7 @@
     \newpage
     Wskaźnik MACD jest przydatny do inwestycji w akcje stabilne, które nie ulegają częstym nagłym zmianom.
     Dla danych przedstawionych na powyższym wykresie prosty algorytm działający jedynie na podstawie MACD
-    osiągnął duży zysk - wynik
+    osiągnął duży zysk - wynik:
    
     \begin{figure}[H]
         \noindent\makebox[\textwidth]{\includegraphics{AnalizaCDP.png}}
@@ -82,7 +82,7 @@
 \section{Analiza przydatności MACD do inwestowania}
 
     Analziując zachowanie algorytmu dla różnych wejść, możemy zauważyć, że najprostszy algorytm,
-    kupujący i sprzedający udziały, nie osiąga zadowalających rezultatów. Dla niekótrych indeksów osiąga
+    kupujący i sprzedający udziały w momentach wyznaczonych jedynie przez MACD, nie osiąga zadowalających rezultatów. Dla niekótrych indeksów osiąga
     bardzo dobre wyniki, ale w większości przypadków wartość naszego portfela na końcu testu jest niższa niż na początku.
 
     
@@ -96,14 +96,42 @@
 
     \noindent Wartość poniżej 1 będzie oznaczać stratę, a powyżej zysk.\\
     \noindent Przykładowe wyniki:
-    %DO ZMIAN SPORYCH BO BYL ZJEBANY WZOR
+
+    \subsection{Algorytm podstawowy}
     \begin{figure}[H]
         \noindent\makebox[\textwidth]{\includegraphics{AnalizaCDPDługi.png}}
-        \caption{CDP w latach 2012-2022 - strata ok. 334 zł}
+        \caption{CDP w latach 2012-2022 - ponad 9-krotny zysk. Jest to przypadek potwierdzający
+        prydatność wskaźnika MACD w przypadku inwestycji długoterminowych dla stabilnych akcji.}
     \end{figure}
     \begin{figure}[H]
         \noindent\makebox[\textwidth]{\includegraphics{AnalizaOrlen.png}}
-        \caption{CDP w latach 2012-2022 - strata ok. 334 zł}
+        \caption{PKN Orlen 2018-2022 - zysk ok. 1,2 krotny. Kolejne potwierdzenie dobrego działania algorytmu dla stablinych akcji i długoterminowych inwestycji}
     \end{figure}
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics{AnalizaWIG20.png}}
+        \caption{WIG20 2015-2022 - w tym przypadku mamy do czynienia ze stratę, co pokazuje, że wskaźnik MACD nie zawsze jest skuteczny}
+    \end{figure}
+
+    \subsection{Algorytm rozszerzony}
+    Główną wadą prostego algorytmu jest jego wolna reakcja na nagłe zmiany wartości akcji. Takie zmiany są często niemożliwe do przewidzenia, gdyż mogą wynikać 
+    ze zdarzeń, na które nie ma wpływu rynek, takich jak np. wojna, katastrofa klimatyczna. Postanowiłem się więc skupić na ulepszeniu działania algorytmu dla długoterminowych inwestycji.
+    Dodałem do niego warunek, który sprzedaje akcje tylko wtedy kiedy kupił je w niższej cenia oraz warunek sprawdzający czy w ostatnim miesiącu dokonał sprzedaży.
+    Jeżeli w ciągu tego miesiąca algorytm nie sprzedał akcji, to oznacza to, że cena akcji spadła na dłużej i należy wznowić inwestowanie - zresetować cenę ostatniego zakupu.
+    Podejście to sprawdza się dla akcji stabilnych.
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics{AnalizaAsseco2alg.png}}
+        \caption{Asseco Poland 2018-2022 - widać przewagę algorytmu rozszerzonego,
+        jego zastosowanie pozwoliło osiągnąć zysk}
+    \end{figure}
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics{AnalizaWig202alg.png}}
+        \caption{WIG20 2015-2022 - drobna przewaga algorytmu rozszerzonego, ale pomimo tego strata}
+    \end{figure}
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics{AnalizaCDPKrotki2alg.png}}
+        \caption{CD Projekt 2015-2022 - ujawnia się wada tego podejścia, jeżeli sprzedamy akcje w maksimum ich wartości, to algorytm nie będzie już mógł inwestować}
+    \end{figure}
+
+
 
 \end{document}
