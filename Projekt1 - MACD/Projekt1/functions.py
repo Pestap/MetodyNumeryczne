@@ -10,6 +10,7 @@ def importCSVData(filepath):
     dates = df.Data.to_list()
     return dates, values
 
+
 def calculateMovingAverage(periods, values):
     result = []
     alfa = 2/(periods+1)
@@ -22,6 +23,7 @@ def calculateMovingAverage(periods, values):
         result.append(upper/lower)
     return result
 
+
 def calculateMACDandSignal(ema12, ema26):
     macd = []
     for i in range(len(ema26)):
@@ -31,26 +33,6 @@ def calculateMACDandSignal(ema12, ema26):
     return macd, signal
 
 
-def calculateBuyAndSellPoints(dates, macd, signal):
-    sellPoints = []
-    buyPoints = []
-    for i in range(1, len(signal)):
-
-        prevDifference = macd[i - 1 + 9] - signal[i - 1]
-        currentDifference = macd[i + 9] - signal[i]
-
-        if prevDifference >= 0 and currentDifference <= 0:
-            # moment sprzedarzy
-            sellPoints.append(dates[i + 35])
-        elif prevDifference <= 0 and currentDifference >= 0:
-            # moment kupna
-            buyPoints.append(dates[i + 35])
-
-    return buyPoints, sellPoints
-
-
-# potrzebna jeszcze funckja do obliczenia SIGNAL
-# do rysowania wykresu SIGNAL i MACD
 def drawMainPlot(dates, values, macd, signal, indexname):
     #formatowanie daty
     dates = [dt.datetime.strptime(d, '%Y-%m-%d').date() for d in dates]
@@ -67,17 +49,6 @@ def drawMainPlot(dates, values, macd, signal, indexname):
     ax2.plot(dates[35:], signal, color='r', label="SIGNAL", linewidth=0.8)
 
     # zaczynamy od 1 bo będziemy sprawdzać poprzedni
-    #buyPoints, sellPoints = calculateBuyAndSellPoints(dates, macd, signal)
-
-
-    # for i in sellPoints:
-    #    ax1.axvline(i, linewidth=0.75, color='r', linestyle='dashed')
-    #for i in buyPoints:
-    #    ax1.axvline(i, linewidth=0.75, color='g', linestyle='dashed')
-
-    # legendy do linii kupna i sprzedaży
-    #ax1.plot([], [], 'r--', label='Sell')
-    #ax1.plot([], [], 'g--', label='Buy')
 
     # rozmiar wykresu
     fig.set_size_inches(30, 15)
@@ -128,6 +99,7 @@ def drawMainPlot(dates, values, macd, signal, indexname):
     #wyswietlenie wykresu
     plt.show()
 
+
 # funckje dla algorytmu inwestującego
 def buyShares(sharePrice, capital, shares):
     while(True):
@@ -138,6 +110,7 @@ def buyShares(sharePrice, capital, shares):
             break
     return capital, shares
 
+
 def sellShares(sharePrice, capital, shares):
     while(True):
         if shares > 0:
@@ -146,6 +119,7 @@ def sellShares(sharePrice, capital, shares):
         else:
             break
     return capital, shares
+
 
 def simpleAlgorithm(initial_shares, initial_balance, values, macd, signal):
     cash = initial_balance
@@ -176,14 +150,14 @@ def advancedAlgorithm(initial_shares, initial_balance, values, macd, signal):
 
         if i - last_sold_at == 31:
            last_bought_price = -1000 * values[0]
-
-        if currentDifference > 0 and prevDifference < 0:
+        elif currentDifference > 0 and prevDifference < 0:
             cash, shares = buyShares(values[i + 35], cash, shares)
             last_bought_price = values[i+35]
             last_bought_at = i
+
         elif currentDifference < 0 and prevDifference > 0 and values[i+35] > last_bought_price:
             cash, shares = sellShares(values[i + 35], cash, shares)
             last_sold_at = i
             last_sold_price = values[i+35]
 
-    return cash,shares
+    return cash, shares

@@ -5,8 +5,8 @@ import functions
 
 
 # definicja plików wejsciowych i nazwy indeksu ktory bedziemy analziowac
-csvFilepath = 'PKOBP.csv'
-indexname = 'PKO BP'
+csvFilepath = 'PEKAO.csv'
+indexname = 'Pekao'
 
 csvFilepath = 'CSV/' + csvFilepath
 
@@ -24,7 +24,6 @@ macd, signal = functions.calculateMACDandSignal(ema12, ema26)
 functions.drawMainPlot(dates, values, macd, signal, indexname)
 
 
-
 # algorytm inwestujący
 
 cash = 0
@@ -40,7 +39,7 @@ profit = (shares*values[-1] + cash)/(1000*values[36])
 cash_a = 0
 shares_a = 1000
 
-cash_a,shares_a = functions.advancedAlgorithm(shares_a,cash_a,values,macd,signal)
+cash_a, shares_a = functions.advancedAlgorithm(shares_a, cash_a, values, macd, signal)
 
 profit_a = (shares_a*values[-1] + cash_a)/(1000*values[36])
 print("Początkowy kapitał: 1000 akcji")

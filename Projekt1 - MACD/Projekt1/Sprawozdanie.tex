@@ -1,0 +1,153 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{graphicx}
+\usepackage[margin= 2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage[section]{placeins}
+
+\title{Wskaźnik MACD}
+\author{Piotr Pesta, 184531}
+\date{Marzec 2022}
+\setlength{\parindent}{20pt}
+\graphicspath{{./Graphs/}}
+
+\begin{document}
+\maketitle
+
+\section{Wstęp}
+
+    Celem projektu było zaimplementowanie wskaźnika MACD (Moving Average Convergence Divergence), który pozwala na podstawie analizy danych historycznych
+    wyznaczać momenty kupna i sprzedaży udziałów. Wskaźnik ten składa się z dwóch krzywych: MACD oraz Signal.
+    Implementacji dokonałem w języku Python z wykorzystaniem bibliotek pandas oraz matplotlib.
+    Dane wejściowe to plik .csv o zawierający informacje o cenach udziałów z konkretnych dni. 
+    Jako wartość udziałów w danym dniu przyjąłem cenę zamknięcia z tego dnia. Do algorytmu obracającego akcjami podajemy dane z ok. 1000 dni.
+
+\section{Analiza zadania}
+
+    W celu określenia na podstawie wskaźnika MACD momentów kupna i sprzedaży akcji należy obliczyć
+    dwie średnie kroczące z wartości udziałów:
+    \begin{itemize}
+        \item krótkookresową - 12 okresów
+        \item długookresową - 26 okresów
+    \end{itemize}
+
+    \noindent Następnie wartość MACD uzyskujemy odejmując średnią długookresową od krótkookresowej.
+    W celu obliczenia Signal należy obliczyć średnią krocząca z MACD z 9 okresów. 
+
+
+    Do obliczenia średnich kroczących skorzystałem z poniższego wzoru:
+ 
+        
+
+    \begin{align*} 
+        EMA_{N} &= \frac{p_{0} + (1-\alpha)p_{1} + (1-\alpha)^2p_{2} + \ldots + (1-\alpha)^Np_{N}}{1 + (1-\alpha)+(1-\alpha)^2 + \ldots + (1-\alpha)^N} \\
+        \mathit{Gdzie:} & \\
+        \alpha &= \frac{2}{N + 1} \\
+        N &- liczba \; okres \mathit{ó} w \\
+        p_{i} &- pr\mathit{ó}bka \; z \; i-tego \;dnia, \;p_{0}\; - \; pr\mathit{ó}bka \;z \;aktualnego \;dnia, \;p_{N} \;-\;pr\mathit{ó}bka \;sprzed \;N \;dni.
+    \end{align*}
+
+    Punkty, w których krzywa MACD przecina Signal od dołu są sygnałem do kupna akcji oraz zapowiadają trend wzrostowy.
+    Natomiast punkty, w których MACD przecina Signal od góry, są sygnałem sprzedaży akcji i zapowiedzią trendu spadkowego. 
+    
+    Kod zadania podzieliłem na dwa pliki. Jeden z nich zawiera wszystkie funckje, z których korzystałem do obliczeń, inwestycji oraz rysowania wykresu,
+     a drugi obrazuje kolejność działań poprzez wywoływanie w odpowiedniej kolejności wcześniej wspomnianych funkcji.
+\section{Analiza skuteczności i przykłady działania}
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics[width=\paperwidth]{CD Projekt - 4 lata.png}}
+        \caption{Wykres ceny udziałów CDR oraz obliczonych na ich podstawie MACD oraz Signal. Wykres ten składa się z ok. 900 cen zamknięcia.
+         W celu zachowania czytelności wykresu nie naniosłem na niego linii wyznaczających momenty kupna i sprzedaży.}
+    \end{figure}
+
+    Analizując powyższy wykres możemy dojść do kilku wniosków:
+    \begin{itemize}
+        \item dla powolnych zmian wskaźnik MACD jest skuteczny i pozwala osiągnąć zyski. Jest to dobrze widoczne na wykresie w okresie od 12.03.2022 do 15.05.2020 oraz na lewej części wykresu.
+        \item MACD reaguje z opóźnieniem na nagłe zmiany cen udziałów. Możemy to zauważyć na wykresie w okolicach 21.01.2021, kiedy wystąpił pik wartości udziałów.
+         Na pierwszy rzut oka może wydawać się, że wskaźnik zareagował prawidłowo, jednak gdy przyjrzymy się dokładniej to zauważymy, że sygnał sprzedaży jest spóźniony i znajduję się poza pikiem.
+         Wskaźnik nie nadążył za zmianą i okazja do zarobku przepadła.
+    \end{itemize}
+\newpage
+\section{Analiza przydatności MACD do inwestowania}
+
+    Analziując zachowanie algorytmu dla różnych wejść, możemy zauważyć, że najprostszy algorytm,
+    kupujący i sprzedający udziały w momentach wyznaczonych jedynie przez MACD, nie osiąga zadowalających rezultatów. Dla niekótrych indeksów osiąga
+    bardzo dobre wyniki, ale w większości przypadków wartość naszego portfela na końcu testu jest niższa niż na początku.
+
+    
+    Efektywność algorytmu określamy jako stosunek wartości naszego portfela
+    do jego stanu po działaniu algorytmu na podstawie poniższego wzoru:
+
+    \begin{align*} 
+        zysk = \frac{\mathit{ilośćAkcji}(N) \cdot \mathit{cenaAkcji}(N) + \mathit{gotówka}(N)}{1000 \cdot \mathit{cenaAkcji}(0)}
+    \end{align*}
+
+
+    \noindent Wartość poniżej 1 będzie oznaczać stratę, a powyżej zysk.\\
+    \noindent Przykładowe wyniki:
+
+    \subsection{Algorytm podstawowy}
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics{AnalizaCDPDługi.png}}
+        \caption{CDP w latach 2012-2022 - ponad 9-krotny zysk. Jest to przypadek potwierdzający
+        prydatność wskaźnika MACD w przypadku inwestycji długoterminowych dla stabilnych akcji.}
+    \end{figure}
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics{AnalizaOrlen.png}}
+        \caption{PKN Orlen 2018-2022 - zysk ok. 1,2 krotny. Kolejne potwierdzenie dobrego działania algorytmu dla stablinych akcji i długoterminowych inwestycji}
+    \end{figure}
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics{AnalizaWIG20.png}}
+        \caption{WIG20 2015-2022 - w tym przypadku mamy do czynienia ze stratę, co pokazuje, że wskaźnik MACD nie zawsze jest skuteczny}
+    \end{figure}
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics{AnalizaCDP.png}}
+        \caption{CDP w latach 2018-2022 - ok. 1.5 krotny zysk}
+    \end{figure}
+    
+
+    \subsection{Algorytm rozszerzony}
+    Główną wadą prostego algorytmu jest jego wolna reakcja na nagłe zmiany wartości akcji. Takie zmiany są często niemożliwe do przewidzenia, gdyż mogą wynikać 
+    ze zdarzeń, na które nie ma wpływu rynek, takich jak np. wojna, katastrofa klimatyczna. Skupiłem się więc na ulepszeniu działania algorytmu dla długoterminowych inwestycji.
+    Dodałem do niego warunek, który sprzedaje akcje tylko wtedy kiedy kupił je w niższej cenia oraz sprawdzający czy w ostatnim miesiącu dokonał sprzedaży.
+    Jeżeli w ciągu tego miesiąca algorytm nie sprzedał akcji, to oznacza to, że cena akcji spadła na dłużej i należy wznowić inwestowanie - zresetować cenę ostatniego zakupu.
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics{WynikAsseco.png}}
+        \caption{Asseco Poland 2018-2022 - widać przewagę algorytmu rozszerzonego,
+        jego zastosowanie pozwoliło osiągnąć zysk}
+    \end{figure}
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics{WynikWig.png}}
+        \caption{WIG20 2015-2022 - drobna przewaga algorytmu rozszerzonego, ale pomimo tego strata}
+    \end{figure}
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics{WynikCDP.png}}
+        \caption{CD Projekt 2015-2022 - zwiększenie zysków}
+    \end{figure}
+
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics{WynikOrlen.png}}
+        \caption{Orlen 2018 - 2022 - działanie odwrotne do zamierzonego - algorytm 'ulepszony' okazał się gorszy}
+    \end{figure}
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics{WynikCDP2.png}}
+        \caption{CDP 2018 - 2022 - również rezultat niepożądany}
+    \end{figure}
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{\includegraphics{WynikPKO.png}}
+        \caption{PKO BP 2016 - 2022 - rezultat gorszy od algorytmu podstawowego}
+    \end{figure}
+
+    Skuteczność modyfikacji okazała się być słaba a rezultaty w wielu przypadkach były gorsze.
+    Gdy przyjrzymy się jednak ogólnym wynikom to są one zadowalające, najgorszy rezultat to około 80\%,
+    a więc algorytm przeciwdziała dużym stratom i tak jak w przypadku CD Projekt pozwala osiągnąć duże zyski, 
+    jeżeli dobrze wybierzemy inwestycje.
+
+\section{Podsumowanie}
+    Wskaźnik MACD nie nadaje się do inwestycji krótkoterminowych z powodu opóźnionej rekacji na
+    zmianę cen akcji, ale jest dobrym narzędziem do inwestycji długoterminowych, szczególnie w akcje stabilne,
+    które rzadko ulegają dużym wahaniom. 
+
+
+\end{document}
