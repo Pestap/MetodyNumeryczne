@@ -1,0 +1,4 @@
+Dla przybliżonego położenia pierwiastka 6, wynik jest dokładny i nie widać żadnych nieprawidłowości
+Dla przybliżenia 4.5 uzyskany wynik jest nieprawidłowy (równy 1.5*π).
+Wynika to z faktu, że funkcja tangens jest nieciągła oraz w punktach nieciągłości zmienia znak.
+Sprawia to, że algorytm może zinterpretować taki punkt jako miejsce zerowe (co dzieje się w przykładzie)

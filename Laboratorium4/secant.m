@@ -26,8 +26,8 @@ for i = 1:1000
         it_cnt = i;
         break
     end
-    xNp = xN
-    xN = xNn
+    xNp = xN;
+    xN = xNn;
 
 end
 % obliczanie diff
