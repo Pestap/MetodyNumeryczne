@@ -16,7 +16,8 @@ for i = 1:1000
     yNp = feval(fun,xNp); % obliczenie wartosci funkcji w N-1
     yN = feval(fun,xN); % obliczenie wartosci funkcji w N
    
-    xNn = xN - (yN/((yN - yNp)/(xN-xNp))); % obliczenie N+1
+    xDerivative = (yN - yNp)/(xN - xNp);
+    xNn = xN - (yN/xDerivative); % obliczenie N+1
     
     xvect(end+1) = xNn; % dodanie N + 1 do xvect
 
