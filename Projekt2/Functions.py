@@ -1,4 +1,4 @@
-
+import math
 
 def generateMatrixExA():
     # dla numeru indeksu: 184531
@@ -22,11 +22,23 @@ def generateMatrixExA():
 
     return matrix
 
+def generateVectorBexA():
+    N = 27
+    f = 4
+    vector = [0]*N
+    for i in range(N):
+        vector[i] = math.sin(i*(f+1))
+    return vector
+
 
 def printMatrix(matrix):
     rows = len(matrix)
-
     for i in range(rows):
         for j in matrix[i]:
             print(j, end=" ")
         print()
+
+def printVector(vector):
+    for i in vector:
+        print(i, end=" ")
+    print()
