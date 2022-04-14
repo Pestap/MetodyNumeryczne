@@ -1,11 +1,7 @@
 import math
 
-def generateMatrixExA():
+def generateMatrixExA(a1, a2, a3, N):
     # dla numeru indeksu: 184531
-    N = 27
-    a1 = 10
-    a2 = -1
-    a3 = -1
     matrix = []
     for i in range(N):
         row = [0] * N
@@ -93,8 +89,10 @@ def multiplyMatrices(A,B):
     if not(colsA == rowsB):
         raise Exception("Błędny rozmiar macierzy - mnożenie")
 
+
+
     #TODO: faktycznie mnożenie macierzy
-#TODO: i tak
+
 
 
 def inverseDiagonalMatrix(matrix):

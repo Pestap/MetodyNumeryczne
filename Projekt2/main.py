@@ -3,7 +3,7 @@ import Functions
 
 
 if __name__ == '__main__':
-    matrix = Functions.generateMatrixExA()
+    matrix = Functions.generateMatrixExA(10, -1, -1, 27)
     vectorB = Functions.generateVectorBexA()
 
     L, U, D = Functions.getLUD(matrix)
