@@ -3,8 +3,8 @@ import Functions
 
 
 if __name__ == '__main__':
-    matrix = Functions.generateMatrixExA(10, -1, -1, 27)
-    vectorB = Functions.generateVectorBexA()
+    matrix = Functions.generateBandMatrix(10, -1, -1, 27)
+    vectorB = Functions.generateBVector()
 
     L, U, D = Functions.getLUD(matrix)
 
@@ -16,6 +16,6 @@ if __name__ == '__main__':
     Functions.printMatrix(U)
     Functions.printMatrix(L)
 
-    R = Functions.sumMatrices(U, L)
+    R = Functions.matrixAddition(U, L)
 
 

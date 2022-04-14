@@ -1,24 +1,28 @@
 import math
 
-def generateMatrixExA(a1, a2, a3, N):
+def generateBandMatrix(a1, a2, a3, N):
     # dla numeru indeksu: 184531
     matrix = []
     for i in range(N):
         row = [0] * N
         for j in range(27):
+            # główna przekątna
             if i == j:
                 row[j] = a1
+            # drugie przekątne
             elif i == j - 1 or i == j + 1:
                 row[j] = a2
+            # trzecie przekątnę
             elif i == j - 2 or i == j + 2:
                 row[j] = a3
+            # cała reszta
             else:
                 row[j] = 0
         matrix.append(row)
 
     return matrix
 
-def generateVectorBexA():
+def generateBVector():
     N = 27
     f = 4
     vector = []
@@ -39,15 +43,17 @@ def getLUD(matrix):
     for i in range(rows):
         row = [0]*cols
         for j in range(cols):
+            # interesuje nas tylko przekatna
             if i == j:
                 row[j] = matrix[i][j]
-                break #interesuje nas tylko przekatna
+                break
         D.append(row)
 
     #macierz L
     for i in range(rows):
         row = [0]*cols
         for j in range(cols):
+            # macierz górna trójkątna
             if j < i:
                 row[j] = matrix[i][j]
         L.append(row)
@@ -55,6 +61,7 @@ def getLUD(matrix):
     #macierz U
     for i in range(rows):
         row = [0]*cols
+        # macierz dolna trójkątna
         for j in range(cols):
             if j > i:
                 row[j] = matrix[i][j]
@@ -63,36 +70,49 @@ def getLUD(matrix):
     return L, U, D
 
 
-def sumMatrices(A, B):
+def matrixAddition(A, B):
     if not (len(A) == len(B) and len(A[0]) == len(B[0])):
-        raise Exception("Błędne rozmiary macierzy prz dodawaniu")
+        raise Exception("Error: wrong matrix sizes (addition)")
 
     result = []
-
     for i in range(len(A)):
-        row = [0]* len(A)
+        row = [0]*len(A)
         for j in range(len(A[0])):
             row[j] = A[i][j] + B[i][j]
         result.append(row)
 
     return result
 
+def matrixSubtraction(A, B):
+    if not (len(A) == len(B) and len(A[0]) == len(B[0])):
+        raise Exception("Error: wrong matrix sizes (subtraction)")
 
-def multiplyMatrices(A,B):
-    #sprawdzam rozmiar macierzy
+    result = []
+    for i in range(len(A)):
+        row = [0]*len(A)
+        for j in range(len(A[0])):
+            row[j] = A[i][j] - B[i][j]
+        result.append(row)
+
+    return result
+
+
+def matrixMultiplication(A, B):
+    # sprawdzam rozmiar macierzy
     rowsA = len(A)
     colsA = len(A[0])
 
     rowsB = len(B)
     colsB = len(B[0])
 
+    result = []
+
     if not(colsA == rowsB):
         raise Exception("Błędny rozmiar macierzy - mnożenie")
 
-
-
     #TODO: faktycznie mnożenie macierzy
 
+    return result
 
 
 def inverseDiagonalMatrix(matrix):
