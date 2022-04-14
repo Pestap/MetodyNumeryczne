@@ -16,6 +16,11 @@ if __name__ == '__main__':
     Functions.printMatrix(U)
     Functions.printMatrix(L)
 
+    M = [[5, 4, 3, 2, 1]]
+    N = [[5], [4], [3], [2], [1]]
+
+    P = Functions.matrixMultiplication(N, M)
+    Functions.printMatrix(P)
     R = Functions.matrixAddition(U, L)
 
 

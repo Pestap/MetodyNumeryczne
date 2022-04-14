@@ -110,7 +110,14 @@ def matrixMultiplication(A, B):
     if not(colsA == rowsB):
         raise Exception("Błędny rozmiar macierzy - mnożenie")
 
-    #TODO: faktycznie mnożenie macierzy
+    for i in range(rowsA):
+        row = [0]*colsB
+        for j in range(colsB):
+            sum = 0
+            for k in range(colsA):
+                sum += A[i][k]*B[k][j]
+            row[j] = sum
+        result.append(row)
 
     return result
 
