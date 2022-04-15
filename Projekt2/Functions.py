@@ -5,7 +5,7 @@ def generateBandMatrix(a1, a2, a3, N):
     matrix = []
     for i in range(N):
         row = [0] * N
-        for j in range(27):
+        for j in range(N):
             # główna przekątna
             if i == j:
                 row[j] = a1
@@ -22,8 +22,7 @@ def generateBandMatrix(a1, a2, a3, N):
 
     return matrix
 
-def generateBVector():
-    N = 27
+def generateBVector(N):
     f = 4
     vector = []
     for i in range(N):
@@ -72,11 +71,13 @@ def getLUD(matrix):
 
 def matrixAddition(A, B):
     if not (len(A) == len(B) and len(A[0]) == len(B[0])):
-        raise Exception("Error: wrong matrix sizes (addition)")
+        raise Exception("Error: matrix sizes do not match: A(" +
+                        str(len(A)) + " x " + str(len(A[0])) + ")" +
+                        ", B(" + str(len(B)) + " x " + str(len(B[0])) + ")")
 
     result = []
     for i in range(len(A)):
-        row = [0]*len(A)
+        row = [0]*len(A[0])
         for j in range(len(A[0])):
             row[j] = A[i][j] + B[i][j]
         result.append(row)
@@ -85,11 +86,13 @@ def matrixAddition(A, B):
 
 def matrixSubtraction(A, B):
     if not (len(A) == len(B) and len(A[0]) == len(B[0])):
-        raise Exception("Error: wrong matrix sizes (subtraction)")
+        raise Exception("Error: matrix sizes do not match: A(" +
+                        str(len(A)) + " x " + str(len(A[0])) + ")" +
+                        ", B(" + str(len(B)) + " x " + str(len(B[0])) + ")")
 
     result = []
     for i in range(len(A)):
-        row = [0]*len(A)
+        row = [0]*len(A[0])
         for j in range(len(A[0])):
             row[j] = A[i][j] - B[i][j]
         result.append(row)
@@ -108,7 +111,9 @@ def matrixMultiplication(A, B):
     result = []
 
     if not(colsA == rowsB):
-        raise Exception("Błędny rozmiar macierzy - mnożenie")
+        raise Exception("Error: matrix sizes do not match: A(" +
+                        str(len(A)) + " x " + str(len(A[0])) + ")" +
+                        ", B(" + str(len(B)) + " x " + str(len(B[0])) + ")")
 
     for i in range(rowsA):
         row = [0]*colsB
@@ -117,6 +122,16 @@ def matrixMultiplication(A, B):
             for k in range(colsA):
                 sum += A[i][k]*B[k][j]
             row[j] = sum
+        result.append(row)
+
+    return result
+
+def scalarMatrixMultiplication(matrix, scalar):
+    result = []
+    for i in range(len(matrix)):
+        row = [0]*len(matrix[0])
+        for j in range(len(matrix[0])):
+            row[j] = matrix[i][j] * scalar
         result.append(row)
 
     return result
@@ -133,6 +148,17 @@ def inverseDiagonalMatrix(matrix):
         result.append(row)
 
     return result
+
+
+def calculateResiduumNorm(matrix, aprox, b):
+    residuum = matrixSubtraction(matrixMultiplication(matrix, aprox), b)
+    #TODO: Tu się coś psuje norma zostaje na 34.32...., a poza tym jestem bardzo blisko(wyniki są ok)
+    norm = 0
+    for i in range(len(residuum)):
+        for j in range(len(residuum[0])):
+            norm += math.sqrt(residuum[i][j]**2)
+
+    return norm
 
 
 def printMatrix(matrix):
