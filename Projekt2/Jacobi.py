@@ -15,21 +15,26 @@ from Functions import \
 def jacobi(matrix,vector, epsilon):
 
     L, U, D = getLUD(matrix)
+    #TODO: Lepsze nazwy zmiennych (pamiętaj o minusie),
+    # może lepiej zrobićwykładową implementacje ?
+    # tam nie ma minusów na końcu
 
-    D = scalarMatrixMultiplication(D, -1)
     D_1 = inverseDiagonalMatrix(D)
 
     L_plus_U = matrixAddition(L,U)
     D_1_b = matrixMultiplication(D_1, vector)
     DLU = matrixMultiplication(D_1, L_plus_U) # bardzo kosztowne ale tylko raz
+    DLU = scalarMatrixMultiplication(DLU, -1) # mnożymy razy -1
 
-    #inicjalne przybliżenie rozwiązania
+
+    #początkowe przybliżenie rozwiązania
     xk = []
     for i in range(len(matrix)):
         xk.append([1])
 
     while calculateResiduumNorm(matrix, xk, vector) > epsilon:
-        xk = matrixAddition(matrixMultiplication(DLU, xk), D_1_b)
+        first = matrixMultiplication(DLU, xk)
+        xk = matrixAddition(first, D_1_b)
 
 
 

@@ -151,8 +151,9 @@ def inverseDiagonalMatrix(matrix):
 
 
 def calculateResiduumNorm(matrix, aprox, b):
-    residuum = matrixSubtraction(matrixMultiplication(matrix, aprox), b)
-    #TODO: Tu się coś psuje norma zostaje na 34.32...., a poza tym jestem bardzo blisko(wyniki są ok)
+    bApprox = matrixMultiplication(matrix, aprox)
+    residuum = matrixSubtraction(bApprox, b)
+
     norm = 0
     for i in range(len(residuum)):
         for j in range(len(residuum[0])):
