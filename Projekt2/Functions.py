@@ -157,9 +157,9 @@ def calculateResiduumNorm(matrix, aprox, b):
     norm = 0
     for i in range(len(residuum)):
         for j in range(len(residuum[0])):
-            norm += math.sqrt(residuum[i][j]**2)
+            norm += residuum[i][j]**2
 
-    return norm
+    return math.sqrt(norm)
 
 
 def printMatrix(matrix):

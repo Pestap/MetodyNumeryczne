@@ -19,11 +19,15 @@ def jacobi(matrix,vector, epsilon):
     # może lepiej zrobićwykładową implementacje ?
     # tam nie ma minusów na końcu
 
-    D_1 = inverseDiagonalMatrix(D)
+    invD = inverseDiagonalMatrix(D)
 
-    L_plus_U = matrixAddition(L,U)
-    D_1_b = matrixMultiplication(D_1, vector)
-    DLU = matrixMultiplication(D_1, L_plus_U) # bardzo kosztowne ale tylko raz
+    LU = matrixAddition(L,U)
+    invDb = matrixMultiplication(invD, vector)
+    #DLU = matrixMultiplication(D_1, L_plus_U) # bardzo kosztowne ale tylko raz
+
+    DLU = scalarMatrixMultiplication(LU, invD[0][0])
+    # D_1 możemy przedstwaić jako macierz jednostkową pomnożoną przez skalar
+
     DLU = scalarMatrixMultiplication(DLU, -1) # mnożymy razy -1
 
 
@@ -34,7 +38,7 @@ def jacobi(matrix,vector, epsilon):
 
     while calculateResiduumNorm(matrix, xk, vector) > epsilon:
         first = matrixMultiplication(DLU, xk)
-        xk = matrixAddition(first, D_1_b)
+        xk = matrixAddition(first, invDb)
 
 
 
