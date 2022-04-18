@@ -3,7 +3,7 @@ from Jacobi import jacobi
 
 
 if __name__ == '__main__':
-    N = 131
+    N = 931
     matrix = Functions.generateBandMatrix(10, -1, -1, N)
     vectorB = Functions.generateBVector(N)
 
@@ -11,5 +11,8 @@ if __name__ == '__main__':
 
     D_1 = Functions.inverseDiagonalMatrix(D)
 
-    jacobi(matrix, vectorB, 10 ** (-6))
+    jacobiResult, jacobiIterations = jacobi(matrix, vectorB, 10 ** (-6))
 
+
+    Functions.printMatrix(jacobiResult)
+    print("Liczba iteracji: " + str(jacobiIterations))
