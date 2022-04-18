@@ -1,10 +1,6 @@
-from datetime import time
-
-import Functions
 from Functions import \
     matrixMultiplication, \
     matrixAddition, \
-    matrixSubtraction, \
     inverseDiagonalMatrix, \
     getLUD, \
     scalarMatrixMultiplication, \
@@ -15,9 +11,6 @@ from Functions import \
 def jacobi(matrix,vector, epsilon):
 
     L, U, D = getLUD(matrix)
-    #TODO:
-    # może lepiej zrobićwykładową implementacje ?
-    # tam nie ma minusów na końcu
 
     invD = inverseDiagonalMatrix(D)
 
