@@ -177,6 +177,7 @@ def backwardsSubstitution(matrix, vector):
                 toInsert -= matrix[rowIndex][colIndex] * vector[rowIndex][0]
         toInsert /= matrix[len(matrix)-i-1][len(matrix)-i-1]
         result[rowIndex][0] = toInsert
+        #asfasf
 
     return result
 
