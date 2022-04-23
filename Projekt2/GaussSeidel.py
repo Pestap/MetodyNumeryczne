@@ -1,12 +1,11 @@
+import Functions
 from Functions import \
     matrixMultiplication, \
     matrixAddition, \
-    inverseDiagonalMatrix, \
+    forwardSubstitution, \
     getLUD, \
     scalarMatrixMultiplication, \
     calculateResiduumNorm
-
-from Jacobi import jacobi
 
 def gaussSeidel(matrix, vector, epsilon):
     L,U,D = getLUD(matrix)
@@ -20,14 +19,15 @@ def gaussSeidel(matrix, vector, epsilon):
 
     iterations = 0  # liczba iteracji
 
-
     while calculateResiduumNorm(matrix, xk, vector) > epsilon:
-        #TODO: zamiast jacobi'ego podstawianie w przód/tył
-        second = jacobi(DL, vector, epsilon)[0]
+        # Jako, że macierz DL jest macierzą dolną trójkątną, to do rozwiązania układów równań możemy skorzystać
+        # z metody podstawiania w przód, co daje dużo lepsze wyniki niż użycie do tego celu metody Jacobiego
+        second = forwardSubstitution(DL, vector)
         UR = matrixMultiplication(U, xk)
-        first = scalarMatrixMultiplication(jacobi(DL,UR, epsilon)[0], -1)
+        first = scalarMatrixMultiplication(forwardSubstitution(DL, UR), -1)
         iterations += 1
         xk = matrixAddition(first, second)
+
 
 
     return xk, iterations

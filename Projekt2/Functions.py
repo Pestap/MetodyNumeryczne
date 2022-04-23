@@ -162,25 +162,44 @@ def calculateResiduumNorm(matrix, aprox, b):
     return math.sqrt(norm)
 
 
-def backwardsSubstitution(matrix, vector):
-    result =[];
+def backwardSubstitution(matrix, vector):
+    result =[]
+    # początkowa inicjalizacja wektora rozwiązań
+    for i in range(len(vector)):
+        result.append([0])
+
+    for i in range(len(matrix)-1, -1, -1):
+        #i to indeks wiersza
+        partialResult = vector[i][0]
+        # j to indeks kolumny, idziemy od tylu do kolumny i + 1 (czyli po macierzy gornej trojkatnej)
+        for j in range(len(matrix[i])-1, i, -1):
+            #liczymy wynik cząstkowy
+            partialResult -= result[j][0]*matrix[i][j]
+        # na koniec dzielimy przez wartość na przekątnej
+        partialResult /= matrix[i][i]
+        # i przypisujemy na odpowiednie miejsce w ostatecznym wyniku
+        result[i][0] = partialResult
+    return result
+
+
+def forwardSubstitution(matrix, vector):
+    result =[]
+    # początkowa inicjalizacja wektora rozwiązań
     for i in range(len(vector)):
         result.append([0])
 
     for i in range(len(matrix)):
-        rowIndex = len(matrix) - i - 1
-        #liczba interesujacyhc nas kolumn bedzie taka sama
-        toInsert = vector[rowIndex][0]
-        for j in range(i+1):
-            if i != j:
-                colIndex = len(matrix[0]) - j -1
-                toInsert -= matrix[rowIndex][colIndex] * vector[rowIndex][0]
-        toInsert /= matrix[len(matrix)-i-1][len(matrix)-i-1]
-        result[rowIndex][0] = toInsert
-        #asfasf
-
+        #i to indeks wiersza
+        partialResult = vector[i][0]
+        # j to indeks kolumny, idziemy od przodu do kolumny i-1
+        for j in range(i):
+            #liczymy wynik cząstkowy
+            partialResult -= result[j][0]*matrix[i][j]
+        # na koniec dzielimy przez wartość na przekątnej
+        partialResult /= matrix[i][i]
+        # i przypisujemy na odpowiednie miejsce w ostatecznym wyniku
+        result[i][0] = partialResult
     return result
-
 
 
 
