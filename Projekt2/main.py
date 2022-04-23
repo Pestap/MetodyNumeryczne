@@ -8,9 +8,6 @@ if __name__ == '__main__':
     matrix = Functions.generateBandMatrix(10, -1, -1, N)
     vectorB = Functions.generateBVector(N)
 
-    L, U, D = Functions.getLUD(matrix)
-
-    D_1 = Functions.inverseDiagonalMatrix(D)
 
     jacobiResult, jacobiIterations = jacobi(matrix, vectorB, 10 ** (-6))
 
@@ -26,3 +23,11 @@ if __name__ == '__main__':
     print("Porównanie wyników:")
     for i in range(len(jacobiResult)):
         print(str(jacobiResult[i]) + " --- " + str(gaussSeidelResult[i]))
+
+
+    #Testy podstawiania w tyl
+    matrixtest = [[1, 2, 3], [0, 1, 2], [0, 0, 1]]
+    vectorTest = [[4], [5], [6]]
+
+    resulttest = Functions.backwardsSubstitution(matrixtest, vectorTest)
+    Functions.printMatrix(resulttest)

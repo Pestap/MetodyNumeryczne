@@ -162,6 +162,28 @@ def calculateResiduumNorm(matrix, aprox, b):
     return math.sqrt(norm)
 
 
+def backwardsSubstitution(matrix, vector):
+    result =[];
+    for i in range(len(vector)):
+        result.append([0])
+
+    for i in range(len(matrix)):
+        rowIndex = len(matrix) - i - 1
+        #liczba interesujacyhc nas kolumn bedzie taka sama
+        toInsert = vector[rowIndex][0]
+        for j in range(i+1):
+            if i != j:
+                colIndex = len(matrix[0]) - j -1
+                toInsert -= matrix[rowIndex][colIndex] * vector[rowIndex][0]
+        toInsert /= matrix[len(matrix)-i-1][len(matrix)-i-1]
+        result[rowIndex][0] = toInsert
+
+    return result
+
+
+
+
+
 def printMatrix(matrix):
     rows = len(matrix)
     print()
