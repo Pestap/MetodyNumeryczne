@@ -1,0 +1,7 @@
+Dla K = 5, nie widać znaczących różnic w wykresach.
+Dla K = 15 w przypadku interpolacji wielomianowej na krańcach przedziału interpolacji
+zaczyna pojawiać się efekt Rungego - czyli oscylacje wartości funkcji, pojawiają się one gdy wykorzystujemy
+wielomiany wysokiego stopnia do interpolacji węzłów w równo odległych punktach. 
+Efekt ten jest również widoczny na wykresach interpolacji wielomianowej
+dla K=25 oraz K = 33. Najbardziej wyraźny jest na wykresie dla K = 25 dla x i y w końcu przedziałów (ok. 100).
+W przypadku interpolacji trygonometrycznej ten problem nie występuje.

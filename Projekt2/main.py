@@ -5,7 +5,7 @@ from LU import LU
 
 
 if __name__ == '__main__':
-    N = 31
+    N = 131
     matrix = Functions.generateBandMatrix(10, -1, -1, N)
     vectorB = Functions.generateBVector(N)
 

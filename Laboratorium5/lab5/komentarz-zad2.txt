@@ -1,0 +1,5 @@
+Interpolacja trygonometryczna wykazuje dobrą zbieżność. 
+Wykres nie posiada pików, największa różnica kolejnych wartości to ok. 2,5.
+Dla interpolacji wielomianowej różnica pomiędzy kolejnymi wartościami maksymalnymi nie zmniejsza się.
+Dla K = 20 oraz 21 widać duży pik na wykresie. Gdy wygenerujemy wykres funkcji będącej wynikiem interpolacji dla tych K,
+możemy zauważyć bardzo wyraźny efekt Rungego.
