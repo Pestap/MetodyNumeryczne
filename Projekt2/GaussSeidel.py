@@ -21,6 +21,7 @@ def gaussSeidel(matrix, vector, epsilon):
 
     DL = matrixAddition(D, L)
 
+    initialRes = calculateResiduumNorm(matrix,xk, vector)
     while calculateResiduumNorm(matrix, xk, vector) > epsilon:
         # Jako, że macierz DL jest macierzą dolną trójkątną, to do rozwiązania układów równań możemy skorzystać
         # z metody podstawiania w przód, co daje dużo lepsze wyniki niż użycie do tego celu metody Jacobiego
@@ -29,6 +30,9 @@ def gaussSeidel(matrix, vector, epsilon):
         first = scalarMatrixMultiplication(forwardSubstitution(DL, UR), -1)
         iterations += 1
         xk = matrixAddition(first, second)
+        if iterations == 100 and calculateResiduumNorm(matrix, xk, vector) > initialRes:
+            raise Exception("Metoda GS rozbiega się.")
+
     stop = time.time()
 
 

@@ -1,11 +1,11 @@
 import Functions
 from Jacobi import jacobi
 from GaussSeidel import gaussSeidel
-import LU
+from LU import LU
 
 
 if __name__ == '__main__':
-    N = 131
+    N = 31
     matrix = Functions.generateBandMatrix(10, -1, -1, N)
     vectorB = Functions.generateBVector(N)
 
@@ -13,17 +13,23 @@ if __name__ == '__main__':
     jacobiResult, jacobiIterations, jacobiTime = jacobi(matrix, vectorB, 10 ** (-6))
 
     Functions.printMatrix(jacobiResult)
-    print("Liczba iteracji: " + str(jacobiIterations))
+    print("Liczba iteracji (Jc): " + str(jacobiIterations))
 
     gaussSeidelResult, gaussSeidelIterations, gaussSeidelTime = gaussSeidel(matrix, vectorB, 10**(-6))
 
     Functions.printMatrix(gaussSeidelResult)
-    print("Liczba iteracji: " + str(gaussSeidelIterations))
+    print("Liczba iteracji (GS): " + str(gaussSeidelIterations))
+
+
+
+
+    LUresult, LUtime  = LU(matrix,vectorB)
+
+    print("Jacobi --- LU --- Gauss-Seidl")
+    for i in range(len(jacobiResult)):
+        print(str(jacobiResult[i]) + " --- " + str(LUresult[i]) + " --- " + str(gaussSeidelResult[i]))
 
     print("\nPorównanie wyników:")
     print("Jacobi: czas - " + str(jacobiTime) + ", iteracje - " + str(jacobiIterations))
     print("Gauss-Seidl: czas - " + str(gaussSeidelTime)+ ", iteracje - " + str(gaussSeidelIterations))
-    #for i in range(len(jacobiResult)):
-    #    print(str(jacobiResult[i]) + " --- " + str(gaussSeidelResult[i]))
-
-    LU.LUDecomposition(matrix)
+    print("Faktoryzacja LU: czas -  " + str(LUtime))

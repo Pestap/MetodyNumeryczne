@@ -29,11 +29,14 @@ def jacobi(matrix,vector, epsilon):
     # D_1 możemy przedstwaić jako macierz jednostkową pomnożoną przez skalar
 
     DLU = scalarMatrixMultiplication(DLU, -1) # mnożymy razy -1
-
+    initialRes = calculateResiduumNorm(matrix, xk, vector)
     while calculateResiduumNorm(matrix, xk, vector) > epsilon:
         iterations += 1
         first = matrixMultiplication(DLU, xk)
         xk = matrixAddition(first, invDb)
+        if iterations == 100 and calculateResiduumNorm(matrix, vector,xk) > initialRes:
+            raise Exception("Metoda Jacobiego rozbiega się")
+
     stop = time.time()
 
     return xk, iterations, stop - start
