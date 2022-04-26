@@ -31,7 +31,9 @@ def gaussSeidel(matrix, vector, epsilon):
         iterations += 1
         xk = matrixAddition(first, second)
         if iterations == 100 and calculateResiduumNorm(matrix, xk, vector) > initialRes:
-            raise Exception("Metoda GS rozbiega się.")
+            print("Metoda GS rozbiega się.")
+            xk = None
+            break
 
     stop = time.time()
 

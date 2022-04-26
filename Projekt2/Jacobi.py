@@ -35,7 +35,9 @@ def jacobi(matrix,vector, epsilon):
         first = matrixMultiplication(DLU, xk)
         xk = matrixAddition(first, invDb)
         if iterations == 100 and calculateResiduumNorm(matrix, vector,xk) > initialRes:
-            raise Exception("Metoda Jacobiego rozbiega się")
+            print("Metoda Jacobiego rozbiega się")
+            xk = None
+            break
 
     stop = time.time()
 
