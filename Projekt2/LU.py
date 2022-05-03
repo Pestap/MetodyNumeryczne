@@ -23,33 +23,11 @@ def LUDecomposition(matrix):
             U[i][j] = matrix[i][j]
 
     for i in range(len(matrix) - 1):
-        #tworzymy macierz pomocniczą Li
-        #Li = []
-        #for j in range(len(matrix)):
-        #    row = []
-        #    for k in range(len(matrix[0])):
-        #        if j == k:
-        #            row.append(1)
-        #        else:
-        #            row.append(0)
-        #    Li.append(row)
-
-        #for j in range(i+1, len(matrix)):
-        #    Li[j][i] = matrix[j][i] / matrix[i][i]
-        # zoptymalizowane dla naszego konkretnego przypadku
-        # zabezpieczenie przed wyjściem poza tablice
-        #lastRow = i+3
-        #if lastRow > len(matrix):
-        ##    lastRow = len(matrix)
-        #for j in range(i+1, lastRow):
-        #    L[j][i] = (U[j][i] / U[i][i]) * (-1)
-        #    L[j][i] = (-1)*L[j][i]
         for j in range(i+1, len(matrix)):
             L[j][i] = U[j][i]/U[i][i]
             for k in range(i, len(matrix)):
                 U[j][k] = U[j][k] - L[j][i]*U[i][k]
 
-       # U = matrixMultiplication(L, U)
 
     return L, U
 
