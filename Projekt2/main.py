@@ -1,5 +1,7 @@
 import Functions
 import matplotlib.pyplot as plt
+import numpy as np
+import time
 from Jacobi import jacobi
 from GaussSeidel import gaussSeidel
 from LU import LU
@@ -9,7 +11,7 @@ if __name__ == '__main__':
     N = 931
     epsilon = 10 ** (-9)
     matrixA = Functions.generateBandMatrix(10, -1, -1, N)
-    matrixC = Functions.generateBandMatrix(3,-1,-1, N)
+    matrixC = Functions.generateBandMatrix(3, -1, -1, N)
     vectorB = Functions.generateBVector(N)
 
     #zadanie B
@@ -17,7 +19,7 @@ if __name__ == '__main__':
     jacobiResult, jacobiIterations, jacobiTime = jacobi(matrixA, vectorB, epsilon)
     gaussSeidelResult, gaussSeidelIterations, gaussSeidelTime = gaussSeidel(matrixA, vectorB, epsilon)
 
-    #To w sumie jest dodatkowo
+    #Obliczenie układu z zadania A przy użyciu faktoryzacji LU
     LUresult, LUtime  = LU(matrixA,vectorB)
 
     print("Jacobi --- Gauss-Seidl --- LU")
@@ -28,6 +30,13 @@ if __name__ == '__main__':
     print("Jacobi: czas - " + str(jacobiTime) + "s , iteracje - " + str(jacobiIterations) + ", norma z wektora residuum: " + str(Functions.calculateResiduumNorm(matrixA, jacobiResult, vectorB)))
     print("Gauss-Seidl: czas - " + str(gaussSeidelTime)+ "s , iteracje - " + str(gaussSeidelIterations) + ", norma z wektora residuum: " + str(Functions.calculateResiduumNorm(matrixA, gaussSeidelResult, vectorB)))
     print("Faktoryzacja LU: czas -  " + str(LUtime) + " s, " + "norma z wektora residuum: " + str(Functions.calculateResiduumNorm(matrixA, LUresult, vectorB)))
+    # Porównanie z gotowymi implementacjami
+
+    start = time.time();
+    resultNumpy = np.linalg.solve(matrixA, vectorB)
+    stop = time.time();
+
+    print("Implementacja metody linalg.solve() z biblioteki Numpy: czas - " + str(stop - start) + "s, norma z wektora residuum: " + str(Functions.calculateResiduumNorm(matrixA, resultNumpy, vectorB)))
     print()
 
     #Zad C i D
@@ -36,14 +45,13 @@ if __name__ == '__main__':
     LUResultC, LUTimeC = LU(matrixC, vectorB)
     JacobiResultC,JacobiIterationsC, JacobiTimeC = jacobi(matrixC, vectorB, epsilon)
     GSResultC, GSIterationsC, GSTimeC = gaussSeidel(matrixC,vectorB, epsilon)
-    print("Faktoryzacja LU: czas -  " + str(LUTimeC) + "s, " + "norma z wektora residuum: " + str(
-        Functions.calculateResiduumNorm(matrixC, LUResultC, vectorB)))
+    print("Faktoryzacja LU: czas -  " + str(LUTimeC) + "s, " + "norma z wektora residuum: " + str(Functions.calculateResiduumNorm(matrixC, LUResultC, vectorB)))
 
 
-    #TODO: Wykres czasu trwania od liczby niewiadomych
 
-    #nArray = [100, 500, 1000, 2000, 3000]
-    nArray = [10, 20, 30, 50, 100, 200, 500]
+
+
+    nArray = [10, 50, 100, 500, 1000, 2000, 3000]
     timesJacobi = []
     timesGS = []
     timesLU = []
@@ -58,6 +66,7 @@ if __name__ == '__main__':
         timesJacobi.append(jacobiItime)
         timesGS.append(gsItime)
         timesLU.append(luTime)
+        print(str(i) + " completed")
 
 
     plt.plot(nArray, timesJacobi)
@@ -72,4 +81,5 @@ if __name__ == '__main__':
     plt.show()
 
 
-    #TODO: Porównanie z gotowcami z numpy, ale to zrobić w oddzielnym pliku
+
+

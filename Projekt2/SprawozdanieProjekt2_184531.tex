@@ -237,7 +237,7 @@
     \newpage
     \section{Zadanie E}
     Utworzyłem wykres dla liczby zmiennych N = {100, 500, 1000, 2000, 3000}.
-    W celu lepszego ukazania różnić między metodami na osi y użyłem skali logarytmicznej.
+    W celu lepszego zobrazowania wyników, dla osi y użyłem skali logarytmicznej.
 
 
     \begin{figure}[h]
@@ -287,6 +287,26 @@
     \noindent Jak widać po wynikach, metody iteracyjne są znacznie szybsze,
     nawet przy takiej samej dokładności. Jest to maksymalna dokładność z jaką możemy uzyskać
     wynik dla metod iteracyjnych. Przy wartościach niższych metody rozbiegają się.
-    
+    \newpage
     \section{Porównanie z biblioteką Numpy}
+    Sprawdziłem działanie metody numpy.linalg.solve() dla układu z zadania A i działa ona znacznie szybciej od 
+    wszystkich zaimplementowanych przeze mnie metod.
+
+    \begin{figure}[h]
+
+        \centering
+        \includegraphics[width=\textwidth]{porownanieNP.png}
+        \centering
+        \caption{Porównanie działania metody z biblioteki Numpy}
+
+    \end{figure}
+
+    \noindent Jak widać na powyższym obrazku, czas działania jest znacznie krótszy, a norma z wektora residuum
+    jest na poziomie $10^{-15}$, czyli wynik jest dokładny. 
+
+    \noindent Lepsza wydajność pakietu Numpy jest spowodowany wykorzystaniem tablic zamiast list. Tablice (jak w C/C++)
+    zawierają dane jednego typu i są upakowane w pamięci komputera. Listy, których używam w projekcie, 
+    mogą zawierać elementy różnego typu i być rozrzucone w pamięci. Implementacja zastosowana w Numpy
+    powoduje znacznie większą szybkość wykonywania operacji na wekotrach i macierzach, a w rezultacie również szybsze
+    działanie algorytmów odpowiadających za rozwiązywanie układów równań liniowych.
 \end{document}_
