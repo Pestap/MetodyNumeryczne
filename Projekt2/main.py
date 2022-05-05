@@ -14,8 +14,8 @@ if __name__ == '__main__':
 
     #zadanie B
     print("Zadanie B")
-    jacobiResult, jacobiIterations, jacobiTime = jacobi(matrixA, vectorB, 10 ** (-9))
-    gaussSeidelResult, gaussSeidelIterations, gaussSeidelTime = gaussSeidel(matrixA, vectorB, 10**(-9))
+    jacobiResult, jacobiIterations, jacobiTime = jacobi(matrixA, vectorB, epsilon)
+    gaussSeidelResult, gaussSeidelIterations, gaussSeidelTime = gaussSeidel(matrixA, vectorB, epsilon)
 
     #To w sumie jest dodatkowo
     LUresult, LUtime  = LU(matrixA,vectorB)
@@ -42,8 +42,8 @@ if __name__ == '__main__':
 
     #TODO: Wykres czasu trwania od liczby niewiadomych
 
-    nArray = [100, 500, 1000, 2000, 3000]
-    #nArray = [10, 20, 30, 50, 100, 200, 500]
+    #nArray = [100, 500, 1000, 2000, 3000]
+    nArray = [10, 20, 30, 50, 100, 200, 500]
     timesJacobi = []
     timesGS = []
     timesLU = []

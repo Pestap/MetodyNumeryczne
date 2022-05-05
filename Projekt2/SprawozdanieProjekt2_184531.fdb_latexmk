@@ -1,11 +1,13 @@
 # Fdb version 3
-["pdflatex"] 1651685895 "d:/Piotrek/Studia/Semestr 4/MetodyNumeryczne/Projekt2/SprawozdanieProjekt2_184531.tex" "SprawozdanieProjekt2_184531.pdf" "SprawozdanieProjekt2_184531" 1651685896
+["pdflatex"] 1651740207 "d:/Piotrek/Studia/Semestr 4/MetodyNumeryczne/Projekt2/SprawozdanieProjekt2_184531.tex" "SprawozdanieProjekt2_184531.pdf" "SprawozdanieProjekt2_184531" 1651740208
   "Images/LU.png" 1651684538 16379 1cddd765c11d9c6c4c4fcd7fe18355ee ""
   "Images/LUD.png" 1651661891 7070 50a26443f61f262ae2ee4d0dcef7b231 ""
+  "Images/LUJacGS.png" 1651738986 27721 f73797df0dda45e72930ff05b7f9ca53 ""
   "Images/porownaniGSJac.png" 1651667888 19644 fd523c811a6c3f282fd1d079fbe058bb ""
-  "Images/test.png" 1651684166 43222 6c900653fa42f7c4846ddcf775d740ab ""
-  "SprawozdanieProjekt2_184531.aux" 1651685896 1930 b04a2eac3e1241be24c20b742479c9d9 "pdflatex"
-  "SprawozdanieProjekt2_184531.tex" 1651685893 12239 9489b8cb3472b044c2f3d1752cf88b0b ""
+  "Images/tasamadok.png" 1651739901 28185 1d5e916125e0abe5beabed4127a49d15 ""
+  "Images/test.png" 1651687123 42232 3d0c1488c0269348dae37b984f52711b ""
+  "SprawozdanieProjekt2_184531.aux" 1651740208 2239 dd1a0c0be3169a3817c23d01d9bf3f15 "pdflatex"
+  "SprawozdanieProjekt2_184531.tex" 1651740205 14074 bdd155ede5ced19ef3ca3be7cfea6406 ""
   "c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1651234137 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2022/texmf-dist/fonts/enc/dvips/pl/plme.enc" 1651236164 3126 59f33ff3e396436ebc36f4e7b444d5c4 ""
   "c:/texlive/2022/texmf-dist/fonts/enc/dvips/pl/plmi.enc" 1651236164 2005 f094775651a1386335c158fb632529f1 ""
@@ -90,7 +92,7 @@
   "c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1651237513 4448422 53302d27d6d34c8e3e97ce3a8b4bdfa7 ""
   "c:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1651237639 2828251 988e7238ac957d08f10f4f9073744538 ""
   "c:/texlive/2022/texmf.cnf" 1651237491 713 e69b156964470283e0530f5060668171 ""
-  "d:/Piotrek/Studia/Semestr 4/MetodyNumeryczne/Projekt2/SprawozdanieProjekt2_184531.tex" 1651685893 12239 9489b8cb3472b044c2f3d1752cf88b0b ""
+  "d:/Piotrek/Studia/Semestr 4/MetodyNumeryczne/Projekt2/SprawozdanieProjekt2_184531.tex" 1651740205 14074 bdd155ede5ced19ef3ca3be7cfea6406 ""
   (generated)
   "SprawozdanieProjekt2_184531.aux"
   "SprawozdanieProjekt2_184531.log"

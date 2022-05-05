@@ -245,12 +245,48 @@
         \centering
         \includegraphics[width=\textwidth]{test.png}
         \centering
-        \caption{Zadanie C - jak widać metody iteracyjne rozbiegają się}
+        \caption{Zadanie E - wykres czasu działania różnych metod}
 
     \end{figure}
+    \newpage
     \section{Zadanie F}
+    Analizując powyższy wykres możemy zauważyć, że metoda faktoryzacji LU jest znacząco wolniejsza
+    niż obie metody iteracyjne.
+    \begin{figure}[h]
 
+        \centering
+        \includegraphics[width=\textwidth]{LUJacGS.png}
+        \centering
+        \caption{Porównanie czasów działania dla układu z zadania A}
 
+    \end{figure}
 
+    \noindent Gdy uruchomimy wszystkie 3 metody na układzie z zadania A, 
+    wyniki odzwierciedlają to co widzimy na wykresie - dla 931 zmiennych najszybsza jest metoda 
+    Gaussa-Seidla, niewiele wolniejsza jest metoda Jacobiego, a metoda faktoryzacji LU potrzebuje 
+    znacznie więcej czasu do uzyskania wyniku. Metoda Jacobiego potrzebuje więcej iteracji niż metoda
+    Gaussa-Seidla, ale działa podobnie szybko. Iteracje metody Gaussa-Seidla są bardziej kosztowne,
+    ponieważ w każdej iteracji musimy dokonać mnożenia macierzy przez wektor.
+
+    \noindent Warto jednak zauważyć, że faktoryzacja LU uzyskuje znacznie dokładniejszy wynik.
+    Tak dokładny wynik rzadko jest nam potrzebny, a w metodach iteracyjnych możemy 
+    sterować dokładnością przez parametr epsilon.
+
+    \noindent Przeprowadziłem eksperyment i ustawiłem jako epsilon dla metod iteracyjnych wartośc $10^{-14}$,
+    czyli taką samą jak daje faktoryzacja LU.
+
+    \begin{figure}[h]
+
+        \centering
+        \includegraphics[width=\textwidth]{tasamadok.png}
+        \centering
+        \caption{Czasy działania przy takiej samej dokładności wyniku}
+
+    \end{figure}
+
+    \noindent Jak widać po wynikach, metody iteracyjne są znacznie szybsze,
+    nawet przy takiej samej dokładności. Jest to maksymalna dokładność z jaką możemy uzyskać
+    wynik dla metod iteracyjnych. Przy wartościach niższych metody rozbiegają się.
+    
     \section{Porównanie z biblioteką Numpy}
 \end{document}_
