@@ -89,16 +89,20 @@
     \subsection{Wektor residuum}
     Wektor residuum jest bardzo istotnym elementem metod iteracyjnych.
     Badając jego normę euklidesową możemy okreslić moment, w którym przybliżenie wyniku jest
-    zadowalające i algorytm może zakończyć działanie. Zakończenie algorytmy następuje w momencie,
+    zadowalające i algorytm może zakończyć działanie. Zakończenie algorytmu następuje w momencie,
     gdy norma ta jest mniejsza niż podany parametr epsilon.\\
+    \noindent Wektor residuum obliczamy ze wzoru: \\
 
-    \noindent Norma euklidesowa wektora x ma postać:
+    $\bm{res}^k = \bm{Mx}^k - \bm{b}$ \\
+
+    \noindent Norma euklidesowa wektora residuum ma postać:
 
         \[ 
-            || x ||_2 = \sqrt{ \sum_{i = 1}^{n} x_i^2} 
+            || res ||_2 = \sqrt{ \sum_{i = 1}^{n} res_i^2} 
        \]
 
 
+    \newpage
     \subsection{Metoda Jacobiego}
 
     Podstawiając do powyższego równania \textbf{M} = \textbf{L} + \textbf{D} + \textbf{U}, 
@@ -108,12 +112,10 @@
 
     \noindent k - przybliżenie wyniku po k-tej iteracji
 
-    \newpage
-
     \noindent Możemy zauważyć, że czynniki $-\bm{D}^{-1}(\bm{L} + \bm{U})$ oraz $\bm{D}^{-1}\bm{b}$
     możemy obliczyć jeden raz, zamiast w każdej iteracji osobno. Obliczenie pierwszego z tych czynników może być
     kosztowne, ponieważ dokonujemy mnożenia dwóch macierzy (złożoność - $O(n^3)$), 
-    a nie mnożenia $macierz \times wektor$ (złożoność - $O(n^3)$). W przypadku naszego zadania warto zauważyć,
+    a nie mnożenia $macierz \times wektor$ (złożoność - $O(n^2)$). W przypadku naszego zadania warto zauważyć,
     że wszystkie elementy na głównej przekątnej macierzy D są takie same.
     Możemy zatem przedstawić macierz D w postaci: $\bm{D} \; = \; d_{00}\bm{I}$, a następnie korzystając z własności 
     macierzy jednostkowej obliczyć nasz czynnik jako: $-\bm{D}^{-1}(\bm{L} + \bm{U}) = -d^{-1}_{00} \cdot (\bm{L} + \bm{U})$.
@@ -140,17 +142,17 @@
     $\bm{x}^{k+1} = -(\bm{D} + \bm{L})^{-1}(\bm{U}\bm{x}^k) + (\bm{D} + \bm{L})^{-1}\bm{b}$ \\
 
     \noindent W metodzie Gaussa-Seidla każda pętla algorytmu jest bardziej kosztowna obliczeniowo niż w przypadku metody Jacobiego.
-    Jest to spowodowane faktem, że w metodzie Gaussa-Seidla raz możemy obliczyć tylko jeden wyraz: $(\bm{D} + \bm{L})^{-1}\bm{b}$.
+    Jest to spowodowane faktem, że w metodzie Gaussa-Seidla przed pętlą możemy obliczyć tylko jeden wyraz: $(\bm{D} + \bm{L})^{-1}\bm{b}$.
     Jako, że macierz $(\bm{D} + \bm{L})$ jest macierzą dolną trójkątną, możemy w tym celu wykorzystać metodę podstawiania w przód.
 
     \noindent Pierwszy wyraz, $ -(\bm{D} + \bm{L})^{-1}(\bm{U}\bm{x}^k)$, trzeba obliczać podaczas każdej iteracji.
-    W tym przypadku nie mozemy jawnie odwrócić macierzy $(D+L)^{-1}$, ponieważ wiązałoby się to z dużymi kosztami pamięciowymi.
+    W tym przypadku nie możemy jawnie odwrócić macierzy $(D+L)^{-1}$, ponieważ wiązałoby się to z dużymi kosztami pamięciowymi.
     Musimy więc rozwiązać układ równań liniowych postaci: $ -(\bm{D} + \bm{L})^{-1}(\bm{U}\bm{x}^k)$,
     a następnie do otrzymanego wyniku dodać obliczony na początku algorytmu wyraz. Można zauważyć, że macierz $(\bm{D} + \bm{L})$
     jest macierzą dolną trójkątną oraz wyraz $(\bm{U}\bm{x}^k)$ jest wekotrem. Możemy zatem wykorzystać metodę podstawiania w przód do rozwiązania tego układu.
     
 
-
+    \newpage
     \subsection{Wyniki obliczeń}
     Rozwiązując układ rówań z zadania A, uzyskane wyniki są następujące:
 
@@ -163,7 +165,7 @@
 
     \end{figure}
 
-    Jak widać na powyższym zrzucie ekranu, metoda Jacobiego porzebuje większej liczby iteracji niż metoda Gaussa-Seidla.
+    \noindent Jak widać na powyższym zrzucie ekranu, metoda Jacobiego porzebuje większej liczby iteracji niż metoda Gaussa-Seidla.
     Jednak to metoda Gaussa-Seidla szybciej zakończyła obliczenia. Metoda Gaussa-Seidla jest szybsza i potrzebuje mniej iteracji 
     do uzyskania zadowalającego przybliżenia wyniku. Obie metody działają poprawnie.
     \section{Zadanie C}
@@ -203,10 +205,10 @@
 
     $\bm{A} = \bm{L}\bm{U}$ \\
 
-    \noindent Gdzie \textbf{L} to macierz trójkątna dolna, zawierającą na przekątnej 1 i \textbf{U} to macierz trójkątna dolna.
+    \noindent Gdzie \textbf{L} to macierz trójkątna dolna, zawierającą na przekątnej 1 i \textbf{U} to macierz trójkątna górna.\\
     Najbardziej kosztowną operacją w metodzie LU jest uzyskanie macierzy \textbf{L} i \textbf{U}.
 
-    \noindent Gdy dokonamy już faktoryzacji macierzy \textbf{A}, wykonujemy następujące działania:
+    \noindent Gdy dokonamy już dekompozycji macierzy \textbf{A}, wykonujemy następujące działania:
     \begin{itemize}
         \item $\bm{L}\bm{U}\bm{x} = \bm{b}$
         \item tworzymy wektor pomocniczy: $\bm{y} = \bm{U}\bm{x}$
@@ -216,7 +218,7 @@
 
     \noindent Metoda ta ma złożoność obliczeniową $O(n^3)$. Zaletą faktoryzacji LU jest fakt, 
     że w przypadku gdy chcemy rozwiązać układ równań dla wielu prawych stron i tej samej macierzy 
-    systemowej, ponieważ najbardziej kosztowną część algorytmu - dekompozycje macierzy - wystarczy 
+    systemowej, najbardziej kosztowną część algorytmu - dekompozycje macierzy - wystarczy 
     wykonać jeden raz.
 
     \begin{figure}[h]
@@ -230,13 +232,15 @@
 
     \noindent Norma z wektora residuum wynosi ok. $4.8 \cdot 10^{-14} $, 
     a więc jest ok. $10^5 $ razy niższa niż w przypadku metod iteracyjnych, jednak zwróćmy uwagę,
-    że w ich przypadku moglibyśmy podać jako epsilon np. $10^{-16}$ i wtedy rozwiązanie byłoby dokładniejsze.
+    że w ich przypadku dokładność, a wraz z nią czas działania, możemy dostosować do naszych aktualnych potrzeb. 
     
     \noindent Jednak metody bezpośrenie charakteryzują się tym, że dadzą nam wynik po określonej liczbie operacji,
-    podczas gdy metody iteracyjne mogą się rozbiegać.
+    podczas gdy metody iteracyjne mogą się rozbiegać. W przypadku faktoryzacji LU mogą wystąpić problemy jeżeli macierz systemowa
+    zawiera 0 na głównej przekątnej. Rozwiązaniem tych problemów jest pivoting, czyli zamienianie wierszy macierzy miejscami
+    w celu przeniesienia zer z głównej przekątnej w inne miejsca.
     \newpage
     \section{Zadanie E}
-    Utworzyłem wykres dla liczby zmiennych N = {100, 500, 1000, 2000, 3000}.
+    Utworzony wykres dla liczby zmiennych N = \{100, 500, 1000, 2000, 3000\}.
     W celu lepszego zobrazowania wyników, dla osi y użyłem skali logarytmicznej.
 
 
