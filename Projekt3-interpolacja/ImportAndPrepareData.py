@@ -34,6 +34,10 @@ def prepareData(filename, n):
     for idx, point in enumerate(points):
         if idx % interval == 0:
             interpolation_points.append((point[2], idx))
+    interpolation_points.append((points[-1][2], len(points)-1))
+
+
+
 
     elevations_all_values = [elevation[2] for elevation in points]
     elevations_all_x = [i for i in range(len(points))]
