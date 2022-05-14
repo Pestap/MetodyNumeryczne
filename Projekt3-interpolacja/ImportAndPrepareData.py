@@ -9,11 +9,15 @@ def importFromCSV(filename):
     """
     filepath = "Data/" + filename
     column_names = ["X", "Y", "ele"]
+    #wczytujemy interesujace nas kolumny
     df = pd.read_csv(filepath, usecols=column_names)
+
+    #przekształcamy do list
     x = df.X.to_list()
     y = df.Y.to_list()
     z = df.ele.to_list()
 
+    #pakujemy do jednej listy krotek
     points = [(x[i], y[i], z[i]) for i in range(len(x))]
     return points
 
@@ -24,12 +28,13 @@ def prepareData(filename, n):
     :param n: liczba węzłów interpolacji
     :return: lista wszytskich wysokosci, lista wszysktich x dla wysokosci, lista wysokosic punktow interpolacji i lista xow interpolacji
     """
-
+    if n < 2:
+        raise Exception("Invalid number of interpolation points - cannot be lower than 2, was: " + str(n))
     points = importFromCSV(filename)
 
     # musimy wziąć n punktów w równych odstępach
 
-    interval = len(points) // (n-1)
+    interval = (len(points) - 1) // (n-1)
 
     #w liscie interpolation points mamy: wartośc funkcji w punkcie x,y oraz indeks
     interpolation_points = []

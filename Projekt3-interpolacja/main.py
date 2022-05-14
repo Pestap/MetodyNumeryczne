@@ -8,19 +8,18 @@ import numpy as np
 xarr = [1, 3 ,5]
 yarr = [6, -2, 4]
 
-#TODO: Pobranie danych z pliku, wyznaczenie punktów pomiarowych (np. co 10)
-#TODO: splajny
+#TODO: Pobieranie danych z innych plików
 
 x_val = np.linspace(1,5,40)
 
 #y_res = lagrange(xarr, yarr, x_val)
 #plt.plot(x_val, y_res)
 
-elevations_all_values,elevations_all_x, elevations_interpolation_values, elevations_interpolation_x = prepareData("track_points.csv", 5)
+elevations_all_values,elevations_all_x, elevations_interpolation_values, elevations_interpolation_x = prepareData("track_points.csv", 1)
 
-interpolation_result = lagrange(elevations_interpolation_x, elevations_interpolation_values, elevations_all_x)
+#interpolation_result = lagrange(elevations_interpolation_x, elevations_interpolation_values, elevations_all_x)
 
-#interpolation_result = splines(elevations_interpolation_x, elevations_interpolation_values, elevations_all_x)
+interpolation_result = splines(elevations_interpolation_x, elevations_interpolation_values, elevations_all_x)
 
 #interpolation_result = splines(xarr,yarr, x_val)
 
