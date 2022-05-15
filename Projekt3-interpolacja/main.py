@@ -15,7 +15,7 @@ x_val = np.linspace(1,5,40)
 #y_res = lagrange(xarr, yarr, x_val)
 #plt.plot(x_val, y_res)
 
-elevations_all_values,elevations_all_x, elevations_interpolation_values, elevations_interpolation_x = prepareData("track_points.csv", 1)
+elevations_all_values,elevations_all_x, elevations_interpolation_values, elevations_interpolation_x = prepareData("glownagran.csv", 40)
 
 #interpolation_result = lagrange(elevations_interpolation_x, elevations_interpolation_values, elevations_all_x)
 

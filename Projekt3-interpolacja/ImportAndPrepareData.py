@@ -8,14 +8,14 @@ def importFromCSV(filename):
     :return: listy punktow w formacie (x,y,z) gdzie z to wysokosc
     """
     filepath = "Data/" + filename
-    column_names = ["X", "Y", "ele"]
+    column_names = ["latitude", "longitude", "altitude (m)"]
     #wczytujemy interesujace nas kolumny
     df = pd.read_csv(filepath, usecols=column_names)
 
     #przekształcamy do list
-    x = df.X.to_list()
-    y = df.Y.to_list()
-    z = df.ele.to_list()
+    x = list(df['latitude'])
+    y = list(df['longitude'])
+    z = list(df['altitude (m)'])
 
     #pakujemy do jednej listy krotek
     points = [(x[i], y[i], z[i]) for i in range(len(x))]

@@ -64,8 +64,6 @@ def splines(x_arr, y_arr, all_x):
 
     main_matrix, vector = construct_equations(x_arr, y_arr)
 
-
-
     result_partial = LU(main_matrix, vector)[0]
 
     result = [0]*len(all_x)
