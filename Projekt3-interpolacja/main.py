@@ -53,7 +53,7 @@ for i in interpolationPoints:
             plt.xlabel("Kolejne punkty pomiarowe")
             plt.ylabel("Wysokośc nad poziomem morza [m]")
 
-            plt.title((file.split('.')[0]).replace("_", " ") + " (" + str(i) + " węzłów)")
+            plt.title((file.split('.')[0]).replace("_", " ") + " - (" + str(i) + " węzłów)")
             plt.grid()
             plt.savefig("efektRungego.png")
 
