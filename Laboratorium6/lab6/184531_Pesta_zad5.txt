@@ -1,0 +1,3 @@
+Błąd ten spowodowany jest efektem Rungego, na który podatna jest aproksymacja wielomianowa.
+Aby uniknąć tego efektu można zmienić bazowe funkcje aproksymacji z jednomianów 
+(używanych w aproksymacji wielomianowej) na funkcje trygonometryczne.

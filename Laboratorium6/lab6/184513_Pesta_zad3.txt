@@ -1,0 +1,2 @@
+W tym przypadku lepiej będzie skorzystać z aproksymacji, ponieważ dane pomiarowe obarczone
+są błędem ok. 5%, co powoduje, że fukncja interpolująca może zostać wyznaczona niedokładnie.
