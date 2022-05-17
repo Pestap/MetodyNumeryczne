@@ -61,7 +61,7 @@ M = size(n,2);
 for N=1:71
     xa = aprox_tryg(n,x,N);  % aproksymacja wsp. 'x'.
     ya = aprox_tryg(n,y,N);  % aproksymacja wsp. 'y'.
-    za  = aprox_tryg(n,z,N);  % aproksymacja wsp. 'z'.
+    za = aprox_tryg(n,z,N);  % aproksymacja wsp. 'z'.
 
     err_temp = 0;
     err_x = sqrt(sum((x - xa).^2)) / M;

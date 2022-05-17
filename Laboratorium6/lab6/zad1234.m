@@ -20,7 +20,7 @@ grid on
 axis equal
 xlabel("x [m]");
 ylabel("y [m]");
-zlabel("z[m]");
+zlabel("z [m]");
 title("Dane z systemu lokalizacji N="+N)
 saveas(gcf, "184531_Pesta_zad2.png")
 
