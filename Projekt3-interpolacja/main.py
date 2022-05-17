@@ -1,36 +1,43 @@
+import os
+
 from Lagrange import lagrange
 from Splines import splines
 from ImportAndPrepareData import prepareData
 import matplotlib.pyplot as plt
-import numpy as np
 
 
-xarr = [1, 3 ,5]
-yarr = [6, -2, 4]
+#TODO: Wykresy
 
-#TODO: Pobieranie danych z innych plików
 
-x_val = np.linspace(1,5,40)
+#różne ilości węzłów interpolacji
+interpolationPoints = [5,10,50,100]
+data = os.listdir("Data")
 
-#y_res = lagrange(xarr, yarr, x_val)
-#plt.plot(x_val, y_res)
+#Dane do interpolacji
+for i in interpolationPoints:
+    for file in data:
+        elevations_all_values,elevations_all_x, elevations_interpolation_values, elevations_interpolation_x = prepareData(file, i)
 
-elevations_all_values,elevations_all_x, elevations_interpolation_values, elevations_interpolation_x = prepareData("glownagran.csv", 40)
+        if i <= 10:
+            interpolation_result_lagrange = lagrange(elevations_interpolation_x, elevations_interpolation_values, elevations_all_x)
 
-#interpolation_result = lagrange(elevations_interpolation_x, elevations_interpolation_values, elevations_all_x)
+        interpolation_result_splines = splines(elevations_interpolation_x, elevations_interpolation_values, elevations_all_x)
 
-interpolation_result = splines(elevations_interpolation_x, elevations_interpolation_values, elevations_all_x)
+        plt.clf()
+        plt.scatter(elevations_interpolation_x, elevations_interpolation_values, marker='o', s=10, color="black", label="Węzły interpolacji")
+        plt.plot(elevations_all_x, elevations_all_values, color="blue", linewidth="1", label="Faktyczne wartości funkcji")
+        plt.plot(elevations_all_x, interpolation_result_splines, color="red", linewidth="1", label="Interpolacja funkcjami sklejanymi")
+        if i <= 10:
+            plt.plot(elevations_all_x, interpolation_result_lagrange, color="green", linewidth="1", label="Interpolacja metodą Lagrange'a")
+        #plt.legend(bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left", mode="expand", borderaxespad=0, ncol=3)
+        plt.legend(prop={'size': 8})
+        plt.xlabel("Kolejne punkty pomiarowe")
+        plt.ylabel("Wysokośc nad poziomem morza [m]")
 
-#interpolation_result = splines(xarr,yarr, x_val)
+        plt.title((file.split('.')[0]).replace("_"," "))
+        plt.grid()
 
-plt.scatter(elevations_interpolation_x, elevations_interpolation_values, marker='o', s=10, color="black", label="punkty interpolacji")
-plt.plot(elevations_all_x, elevations_all_values, color="blue", linewidth="1", label="wyskość faktyczna")
-plt.plot(elevations_all_x, interpolation_result, color="red", linewidth="1", label="rezultat interpolacji")
-#plt.plot(x_val, interpolation_result)
-plt.legend()
-plt.grid()
-#plt.margins(x=0)
-plt.show()
+        plt.savefig("Plots/plot_"+ str(i)+"_points_" + file.split('.')[0] + ".png")
 
-#splines(elevations_interpolation_x, elevations_interpolation_values, elevations_all_x)
+
 
