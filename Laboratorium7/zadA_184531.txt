@@ -1,0 +1,4 @@
+Błąd całkowania w przpadku metody prostokątów, trapezów i Simpsona jest prawie identyczny.
+Dla metody Monte Carlo, jego wartość mocno oscyluje, jednak zazwyczaj jest wyższa niż dla pozostałych metod.
+Patrząc na czasy działania tych 4 metod, możemy zauważyć, że metoda Simpsona trwa najdłużej i w naszym przypadku nie daje
+lepszych wyników od pozostałych metod.

@@ -1,9 +1,16 @@
 # Fdb version 3
-["pdflatex"] 1652792222 "d:/Piotrek/Studia/Semestr 4/MetodyNumeryczne/Projekt3-interpolacja/Sprawozdanie_Projekt3_Piotr_Pesta_184531.tex" "Sprawozdanie_Projekt3_Piotr_Pesta_184531.pdf" "Sprawozdanie_Projekt3_Piotr_Pesta_184531" 1652792225
-  "Plots//efektRungego.png" 1652789834 38518 d3bf7ef5b7837f153896e05bdb729552 ""
-  "Plots//plot_10_points_Tatry.png" 1652789803 55492 ed0c9dde0aad6b1503c04f68ac6231ee ""
-  "Sprawozdanie_Projekt3_Piotr_Pesta_184531.aux" 1652792225 796 727505da9b0f18320dc879fa314e342c "pdflatex"
-  "Sprawozdanie_Projekt3_Piotr_Pesta_184531.tex" 1652792220 3878 fd127eb5d63321424e09064741355440 ""
+["pdflatex"] 1653303309 "d:/Piotrek/Studia/Semestr 4/MetodyNumeryczne/Projekt3-interpolacja/Sprawozdanie_Projekt3_Piotr_Pesta_184531.tex" "Sprawozdanie_Projekt3_Piotr_Pesta_184531.pdf" "Sprawozdanie_Projekt3_Piotr_Pesta_184531" 1653303314
+  "Plots//plot_100_points_Główna_Grań_Karkonoszy.png" 1652789849 50975 e75c0e4589aaf5c4b53f555034cad8a4 ""
+  "Plots//plot_100_points_PG_Gdynia_Chwarzno.png" 1652789856 48575 3e7f5a5fdb968f2bb0c65f49b7b42ba2 ""
+  "Plots//plot_100_points_Tatry.png" 1652789870 45344 1438e62dadad02a4408809988cf00cd6 ""
+  "Plots//plot_10_points_Główna_Grań_Karkonoszy.png" 1652792273 62102 5ddf6afd3e6e085e367922aec93b8abe ""
+  "Plots//plot_10_points_PG_Gdynia_Chwarzno.png" 1652792274 58791 4964a727da9707c45dd203f4bba007ff ""
+  "Plots//plot_10_points_Tatry.png" 1652792275 55492 ed0c9dde0aad6b1503c04f68ac6231ee ""
+  "Plots//plot_50_points_Główna_Grań_Karkonoszy.png" 1652792279 50310 e47fccc5898d71bc1c1809cb5c34abfa ""
+  "Plots//plot_50_points_PG_Gdynia_Chwarzno.png" 1652789817 47989 bbc254f40772b4bc41bbb3a800f5c340 ""
+  "Plots//plot_50_points_Tatry.png" 1652789827 44885 5e8cc455a65eb68fc2867342758a2ab1 ""
+  "Sprawozdanie_Projekt3_Piotr_Pesta_184531.aux" 1653303313 2432 a64e7c05bf1a398375e16da246b04d3a "pdflatex"
+  "Sprawozdanie_Projekt3_Piotr_Pesta_184531.tex" 1653303303 8530 323f54722e2dbbde92cd439e835dbdd7 ""
   "c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1651234137 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2022/texmf-dist/fonts/enc/dvips/pl/plme.enc" 1651236164 3126 59f33ff3e396436ebc36f4e7b444d5c4 ""
   "c:/texlive/2022/texmf-dist/fonts/enc/dvips/pl/plmi.enc" 1651236164 2005 f094775651a1386335c158fb632529f1 ""
@@ -91,7 +98,8 @@
   "c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1651237513 4448422 53302d27d6d34c8e3e97ce3a8b4bdfa7 ""
   "c:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1651237639 2828251 988e7238ac957d08f10f4f9073744538 ""
   "c:/texlive/2022/texmf.cnf" 1651237491 713 e69b156964470283e0530f5060668171 ""
-  "d:/Piotrek/Studia/Semestr 4/MetodyNumeryczne/Projekt3-interpolacja/Sprawozdanie_Projekt3_Piotr_Pesta_184531.tex" 1652792220 3878 fd127eb5d63321424e09064741355440 ""
+  "d:/Piotrek/Studia/Semestr 4/MetodyNumeryczne/Projekt3-interpolacja/Sprawozdanie_Projekt3_Piotr_Pesta_184531.tex" 1653303303 8530 323f54722e2dbbde92cd439e835dbdd7 ""
+  "efektRungego.png" 1652792278 39014 e69e57d14256a89da4468e8879dd99e2 ""
   (generated)
   "Sprawozdanie_Projekt3_Piotr_Pesta_184531.aux"
   "Sprawozdanie_Projekt3_Piotr_Pesta_184531.log"

@@ -6,7 +6,8 @@ close all
 warning('off','all')
 load trajektoria2.mat
 
-N = 45;
+%N = 45;
+N = 60;
 
 [ wsp_wielomianu, xa ] = aproksymacjaWiel(n,x,N);  % aproksymacja wsp. 'x'.
 [ wsp_wielomianu, ya ] = aproksymacjaWiel(n,y,N);  % aproksymacja wsp. 'y'.

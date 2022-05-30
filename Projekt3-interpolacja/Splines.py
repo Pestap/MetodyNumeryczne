@@ -22,7 +22,6 @@ def construct_equations(x_arr, y_arr):
     # wektor b
 
 
-    # Si(xi) = f(xi)
     for i in range(section_amount):
         # Si(xi) = f(xi)
         main_matrix[i * 4][4 * i] = 1

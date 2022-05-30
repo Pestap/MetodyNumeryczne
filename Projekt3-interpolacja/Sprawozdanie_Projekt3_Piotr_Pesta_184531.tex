@@ -82,4 +82,113 @@
         \item $S_i''(x_{i+1}) = S_{i+1}''(x_{i+1})$ - ciągłość drugiej pochodnej w węzłach
         \item $S_0''(x_0) = 0, \; S_{n-1}''(x_n) = 0 $ - zerowanie drugiej pochodnej w węzłach granicznych
     \end{itemize}
+
+    \noindent Postać funkcji S(x):
+    \begin{itemize}
+        \item $S_i(x) = a_i + b_i(x - x_i) + c_i(x - x_i)^2 + d_i(x-x_i)^3 $
+        \item $S_i'(x) = b_i + 2c_i(x - x_i) + 3d_i(x - x_i)^2 $
+        \item $S_i''(x) = 2c_i + 6d_i(x-x_i) $
+    \end{itemize}
+
+    \noindent Po podstawienu wartości powstaje następujący układ równań $(h = x_{i+1} - x_i)$
+
+    \[
+    \begin{cases}
+        a_0 = f(x_0)\\
+        a_0 + b_0h + c_0h^2 + d_0h^3 = f(x_1)\\
+        b_0 + 2c_0h + 3d_0h^2 = b_1\\
+        2c_0 + 6d_0h = 2c_1\\
+        \vdots \\
+        a_{n-1} = f(x_{n-1})\\
+        a_{n-1} + b_{n-1}h + c_{n-1}h^2 + d_{n-1}h^3 = f(x_{n-1})\\
+        b_{n-1} + 2c_{n-1}h + 3d_{n-1}h^2 = b_{n}\\
+        2c_{n-1} + 6d_{n-1}h = 2c_{n-1}\\
+        a_n = f(x_n) \\
+        a_n + b_nh + c_nh^2 + d_nh^3 = f(x_{n+1})\\
+        c_0 = 0 \\
+        2c_n + 6d_nh = 0
+    \end{cases}    
+    \]
+
+    \noindent Układ ten zbudowany jest z n-1 czwórek rówań dla każdego przedziału, dwóch równań dla ostatniego przedziału
+    oraz dwóch rówanań dla skrajnych punktów.
+
+    \noindent Po jego rozwiazaniu otrzymamy współczyniki wielomianów interpolujących wszystkie przedziały. W celu ich obliczenia dokonałem
+    zapisu powyższego układu w postaci macierzowej, a następnie do jego rozwiązania wykorzystałem metodę faktoryzacji LU z projektu nr 2 z dodanym pivotingiem.
+
+    \newpage
+
+    \noindent Porównanie interpolacji funkcjami sklejanymi i metodą Lagrange'a (na wykresach dla większych n nie umieściłem wyniku interpolacji
+    Lagrange'a, ponieważ występujący efekt Rungego znacznie pogorszył czytelność wykresu)
+    \begin{figure}[h]
+        \centering
+        \begin{subfigure}{.33\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{plot_10_points_PG_Gdynia_Chwarzno.png}
+            \label{fig:sub1}
+        \end{subfigure}
+        \begin{subfigure}{.33\textwidth}
+          \centering
+          \includegraphics[width=\linewidth]{plot_10_points_Główna_Grań_Karkonoszy.png}
+          \label{fig:sub2}
+        \end{subfigure}%
+        \begin{subfigure}{.33\textwidth}
+          \centering
+          \includegraphics[width=\linewidth]{plot_10_points_Tatry.png}
+          \label{fig:sub3}
+        \end{subfigure}
+        \caption{Przykłady dla n = 10}
+        \label{fig:test}
+    \end{figure}
+    \begin{figure}[h]
+        \centering
+        \begin{subfigure}{.33\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{plot_50_points_PG_Gdynia_Chwarzno.png}
+            \label{fig:sub1}
+        \end{subfigure}
+        \begin{subfigure}{.33\textwidth}
+          \centering
+          \includegraphics[width=\linewidth]{plot_50_points_Główna_Grań_Karkonoszy.png}
+          \label{fig:sub2}
+        \end{subfigure}%
+        \begin{subfigure}{.33\textwidth}
+          \centering
+          \includegraphics[width=\linewidth]{plot_50_points_Tatry.png}
+          \label{fig:sub3}
+        \end{subfigure}
+        \caption{Przykłady dla n = 50}
+        \label{fig:test}
+    \end{figure}
+    \begin{figure}[h]
+        \centering
+        \begin{subfigure}{.33\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{plot_100_points_PG_Gdynia_Chwarzno.png}
+            \label{fig:sub1}
+        \end{subfigure}
+        \begin{subfigure}{.33\textwidth}
+          \centering
+          \includegraphics[width=\linewidth]{plot_100_points_Główna_Grań_Karkonoszy.png}
+          \label{fig:sub2}
+        \end{subfigure}%
+        \begin{subfigure}{.33\textwidth}
+          \centering
+          \includegraphics[width=\linewidth]{plot_100_points_Tatry.png}
+          \label{fig:sub3}
+        \end{subfigure}
+        \caption{Przykłady dla n = 100}
+        \label{fig:test}
+    \end{figure}
+
+    Jak widać na wykresach, interpolacja splineami daje dobre wyniki dla n = 10, a dla wysokich n otrzymujemy prawie dokładny wykres funkcji.
+
+\section{Analiza wyników}
+\subsection{Wpływ liczby punktów węzłowych na wynik}
+    Analizując wyniki obu metod, możemy zauważyć, że im więcej punktów tym dokładniejsza interpolacja. 
+    Metoda Lagrang'e nie daje zadowalających rezulatatów dla większych ilości punktów pomiarowych,
+    jest to spowodowane występowaniem efektu Rungego. Większa ilość punktów nie jest też bez znaczenia dla metody interpolacji
+    funckjami sklejanymi. Wymaga ona rozwiązania układu równań, a koszt tej operacji jest wprost proporcjonalny do liczby zmiennych (faktoryzacja LU - $O(n^3)$).
+    
+
 \end{document}

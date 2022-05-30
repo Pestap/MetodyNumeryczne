@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.29)  17 MAY 2022 14:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.29)  23 MAY 2022 12:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -212,7 +212,65 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count278
 \l__pdf_internal_box=\box53
-) (./Sprawozdanie_Projekt3_Piotr_Pesta_184531.aux)
+) (./Sprawozdanie_Projekt3_Piotr_Pesta_184531.aux
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:test' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub3' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub3' multiply defined.
+
+
+LaTeX Warning: Label `fig:test' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub3' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub3' multiply defined.
+
+
+LaTeX Warning: Label `fig:test' multiply defined.
+
+)
 \openout1 = `Sprawozdanie_Projekt3_Piotr_Pesta_184531.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
@@ -319,25 +377,74 @@ File: ./Plots//plot_10_points_Tatry.png Graphic file (type png)
 <use ./Plots//plot_10_points_Tatry.png>
 Package pdftex.def Info: ./Plots//plot_10_points_Tatry.png  used on input line 52.
 (pdftex.def)             Requested size: 227.47969pt x 170.61041pt.
-<./Plots//efektRungego.png, id=12, 462.528pt x 346.896pt>
-File: ./Plots//efektRungego.png Graphic file (type png)
-<use ./Plots//efektRungego.png>
-Package pdftex.def Info: ./Plots//efektRungego.png  used on input line 58.
+<efektRungego.png, id=12, 462.528pt x 346.896pt>
+File: efektRungego.png Graphic file (type png)
+<use efektRungego.png>
+Package pdftex.def Info: efektRungego.png  used on input line 58.
 (pdftex.def)             Requested size: 227.47969pt x 170.61041pt.
- [2 <./Plots//plot_10_points_Tatry.png> <./Plots//efektRungego.png>] [3] (./Sprawozdanie_Projekt3_Piotr_Pesta_184531.aux) ) 
+ [2 <./Plots//plot_10_points_Tatry.png> <./efektRungego.png>] [3]
+<./Plots//plot_10_points_PG_Gdynia_Chwarzno.png, id=29, 462.528pt x 346.896pt>
+File: ./Plots//plot_10_points_PG_Gdynia_Chwarzno.png Graphic file (type png)
+<use ./Plots//plot_10_points_PG_Gdynia_Chwarzno.png>
+Package pdftex.def Info: ./Plots//plot_10_points_PG_Gdynia_Chwarzno.png  used on input line 127.
+(pdftex.def)             Requested size: 150.13742pt x 112.60223pt.
+<./Plots//plot_10_points_Główna_Grań_Karkonoszy.png, id=30, 462.528pt x 346.896pt>
+File: ./Plots//plot_10_points_Główna_Grań_Karkonoszy.png Graphic file (type png)
+<use ./Plots//plot_10_points_Główna_Grań_Karkonoszy.png>
+Package pdftex.def Info: ./Plots//plot_10_points_Główna_Grań_Karkonoszy.png  used on input line 132.
+(pdftex.def)             Requested size: 150.13742pt x 112.60223pt.
+File: ./Plots//plot_10_points_Tatry.png Graphic file (type png)
+<use ./Plots//plot_10_points_Tatry.png>
+Package pdftex.def Info: ./Plots//plot_10_points_Tatry.png  used on input line 137.
+(pdftex.def)             Requested size: 150.13742pt x 112.60223pt.
+<./Plots//plot_50_points_PG_Gdynia_Chwarzno.png, id=31, 462.528pt x 346.896pt>
+File: ./Plots//plot_50_points_PG_Gdynia_Chwarzno.png Graphic file (type png)
+<use ./Plots//plot_50_points_PG_Gdynia_Chwarzno.png>
+Package pdftex.def Info: ./Plots//plot_50_points_PG_Gdynia_Chwarzno.png  used on input line 147.
+(pdftex.def)             Requested size: 150.13742pt x 112.60223pt.
+<./Plots//plot_50_points_Główna_Grań_Karkonoszy.png, id=32, 462.528pt x 346.896pt>
+File: ./Plots//plot_50_points_Główna_Grań_Karkonoszy.png Graphic file (type png)
+<use ./Plots//plot_50_points_Główna_Grań_Karkonoszy.png>
+Package pdftex.def Info: ./Plots//plot_50_points_Główna_Grań_Karkonoszy.png  used on input line 152.
+(pdftex.def)             Requested size: 150.13742pt x 112.60223pt.
+<./Plots//plot_50_points_Tatry.png, id=33, 462.528pt x 346.896pt>
+File: ./Plots//plot_50_points_Tatry.png Graphic file (type png)
+<use ./Plots//plot_50_points_Tatry.png>
+Package pdftex.def Info: ./Plots//plot_50_points_Tatry.png  used on input line 157.
+(pdftex.def)             Requested size: 150.13742pt x 112.60223pt.
+<./Plots//plot_100_points_PG_Gdynia_Chwarzno.png, id=34, 462.528pt x 346.896pt>
+File: ./Plots//plot_100_points_PG_Gdynia_Chwarzno.png Graphic file (type png)
+<use ./Plots//plot_100_points_PG_Gdynia_Chwarzno.png>
+Package pdftex.def Info: ./Plots//plot_100_points_PG_Gdynia_Chwarzno.png  used on input line 167.
+(pdftex.def)             Requested size: 150.13742pt x 112.60223pt.
+<./Plots//plot_100_points_Główna_Grań_Karkonoszy.png, id=35, 462.528pt x 346.896pt>
+File: ./Plots//plot_100_points_Główna_Grań_Karkonoszy.png Graphic file (type png)
+<use ./Plots//plot_100_points_Główna_Grań_Karkonoszy.png>
+Package pdftex.def Info: ./Plots//plot_100_points_Główna_Grań_Karkonoszy.png  used on input line 172.
+(pdftex.def)             Requested size: 150.13742pt x 112.60223pt.
+<./Plots//plot_100_points_Tatry.png, id=36, 462.528pt x 346.896pt>
+File: ./Plots//plot_100_points_Tatry.png Graphic file (type png)
+<use ./Plots//plot_100_points_Tatry.png>
+Package pdftex.def Info: ./Plots//plot_100_points_Tatry.png  used on input line 177.
+(pdftex.def)             Requested size: 150.13742pt x 112.60223pt.
+ [4 <./Plots//plot_10_points_PG_Gdynia_Chwarzno.png> <./Plots//plot_10_points_Główna_Grań_Karkonoszy.png> <./Plots//plot_50_points_PG_Gdynia_Chwarzno.png> <./Plots//plot_50_points_Główna_Grań_Karkonoszy.png> <./Plots//plot_50_points_Tatry.png> <./Plots//plot_100_points_PG_Gdynia_Chwarzno.png> <./Plots//plot_100_points_Główna_Grań_Karkonoszy.png> <./Plots//plot_100_points_Tatry.png>] [5] (./Sprawozdanie_Projekt3_Piotr_Pesta_184531.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4740 strings out of 478233
- 78747 string characters out of 5847836
- 375409 words of memory out of 5000000
- 22928 multiletter control sequences out of 15000+600000
+ 4808 strings out of 478233
+ 81870 string characters out of 5847836
+ 383549 words of memory out of 5000000
+ 22988 multiletter control sequences out of 15000+600000
  486847 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,8n,63p,345b,507s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 55i,10n,63p,345b,507s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/pl/plrm.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/pl/plms.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/pl/plme.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/pl/plmi.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/pl/plbx12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/pl/plex10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/pl/plmi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/pl/plmi7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/pl/plr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/pl/plr12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/pl/plr17.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/pl/plr7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/pl/plr9.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/pl/plsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/pl/plsy7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Sprawozdanie_Projekt3_Piotr_Pesta_184531.pdf (3 pages, 149010 bytes).
+Output written on Sprawozdanie_Projekt3_Piotr_Pesta_184531.pdf (5 pages, 461618 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 106 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
