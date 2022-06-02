@@ -1,3 +1,5 @@
+import copy
+
 import pandas as pd
 import random
 
@@ -41,12 +43,18 @@ def prepareData(filename, n, random_points=False):
     if random_points:
         #dodajemy pierwszy punkt
 
-        interpolation_points.append((points[0][2],0))
-        avaliable_points = points[1:-1]
+        interpolation_points.append((points[0][2], 0))
+        avaliable_points =copy.deepcopy(points)
         for i in range(n-2):
-            rand_point_idx = random.randint(0, len(avaliable_points)-1)
-            interpolation_points.append((avaliable_points.pop(rand_point_idx)[2], rand_point_idx))
-
+            rand_point_idx = random.randint(1, len(avaliable_points)-2)
+            point_to_add = avaliable_points.pop(rand_point_idx) # pobieramy element do wstawienia
+            point_idx = 0
+            #wyszukujemy indeks w oryginalnej tablicy punktów
+            for idx, point in enumerate(points):
+                if point == point_to_add:
+                    point_idx = idx
+            interpolation_points.append((point_to_add[2], point_idx))
+        # dodajemy ostatni punkt
         interpolation_points.append((points[-1][2], len(points)-1))
     else:
         for idx, point in enumerate(points):

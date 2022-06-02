@@ -24,7 +24,7 @@ def get_results(file, n, random_point_distibution=False):
 
 
     suffix = "regularne" if random_point_distibution == False else "losowe"
-    title = (file.split('.')[0]).replace("_", " ") + " (" + str(i) + ")_" + suffix
+    title = (file.split('.')[0]).replace("_", " ") + " (" + str(i) + ") " + suffix
     plt.clf()
     plt.scatter(elevations_interpolation_x, elevations_interpolation_values, marker='o', s=10, color="black",
                 label="Węzły interpolacji")
@@ -47,24 +47,13 @@ def get_results(file, n, random_point_distibution=False):
 
 
 #różne ilości węzłów interpolacji
-interpolationPoints = [5, 8 ,10, 25 ,50,100, 200]
+interpolationPoints = [5, 8 ,10, 25 ,50,100]
 data = os.listdir("Data")
 
 
-el_all, ell_all_x, el_int, el_int_x = prepareData("Rysy.csv", 10, True)
-interpolation_result_splines = splines(el_int_x, el_int, ell_all_x)
-
-plt.scatter(el_int_x, el_int, marker='o', s=10, color="black",
-            label="Węzły interpolacji")
-plt.plot(ell_all_x, el_all, color="blue", linewidth="1", label="Faktyczne wartości funkcji")
-plt.plot(ell_all_x, interpolation_result_splines, color="red", linewidth="1",label="Interpolacja funkcjami sklejanymi")
-plt.show()
-#Dane do interpolacji
-
-
-for i in interpolationPoints[:3]: # dla różnych liczb punktów interpolacji
+for i in interpolationPoints: # dla różnych liczb punktów interpolacji
     for file in data: # dla wszystkich plików znajdujących się w folderze
-        get_results(file,i,False)
+        #get_results(file,i,False)
         get_results(file,i,True)
 
 
