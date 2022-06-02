@@ -1,5 +1,5 @@
 import pandas as pd
-
+import random
 
 def importFromCSV(filename):
     """
@@ -21,7 +21,7 @@ def importFromCSV(filename):
     points = [(x[i], y[i], z[i]) for i in range(len(x))]
     return points
 
-def prepareData(filename, n):
+def prepareData(filename, n, random_points=False):
     """
 
     :param filename: nazwa pliku csv
@@ -38,14 +38,30 @@ def prepareData(filename, n):
 
     #w liscie interpolation points mamy: wartośc funkcji w punkcie x,y oraz indeks
     interpolation_points = []
-    for idx, point in enumerate(points):
-        if idx % interval == 0:
-            interpolation_points.append((point[2], idx))
+    if random_points:
+        #dodajemy pierwszy punkt
 
-    #dodajemy ostatni punkt pomiarowy
-    interpolation_points.append((points[-1][2], len(points)-1))
-    #usuwamy przedostatni - ostatni przedział będzie dłuższy niż pozostałe(lepiej niż bardzo mały)
-    interpolation_points.pop(-2)
+        interpolation_points.append((points[0][2],0))
+        avaliable_points = points[1:-1]
+        for i in range(n-2):
+            rand_point_idx = random.randint(0, len(avaliable_points)-1)
+            interpolation_points.append((avaliable_points.pop(rand_point_idx)[2], rand_point_idx))
+
+        interpolation_points.append((points[-1][2], len(points)-1))
+    else:
+        for idx, point in enumerate(points):
+            if idx % interval == 0:
+                interpolation_points.append((point[2], idx))
+
+        #dodajemy ostatni punkt pomiarowy
+        interpolation_points.append((points[-1][2], len(points)-1))
+        #usuwamy przedostatni - ostatni przedział będzie dłuższy niż pozostałe(lepiej niż bardzo mały)
+        interpolation_points.pop(-2)
+
+    #sortujemy interpolation_points po indeksie punktu
+
+
+    interpolation_points.sort(key=lambda x: x[1])
 
 
     #rozpakowujemy punkty

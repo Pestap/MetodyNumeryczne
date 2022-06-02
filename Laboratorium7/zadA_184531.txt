@@ -1,4 +1,5 @@
-Błąd całkowania w przpadku metody prostokątów, trapezów i Simpsona jest prawie identyczny.
-Dla metody Monte Carlo, jego wartość mocno oscyluje, jednak zazwyczaj jest wyższa niż dla pozostałych metod.
-Patrząc na czasy działania tych 4 metod, możemy zauważyć, że metoda Simpsona trwa najdłużej i w naszym przypadku nie daje
-lepszych wyników od pozostałych metod.
+Błąd całkowania w przpadku metody prostokątów i trapezów jest prawie identyczny, dla metody prostokątów trochę niższy.
+W metodzie Simpsona błąd jest już wyraźnie mniejszy i dla 10^3 podprzedziałów osiąga wartość bliską 0.
+Dla większej ilości podprzediałów pojawiają się oscylacje.
+Dla metody Monte Carlo, jego wartość mocno oscyluje, jednak zazwyczaj jest wyższa niż dla pozostałych metod, ale widoczny jest trend spadkowy.
+Patrząc na czasy działania tych 4 metod, możemy zauważyć, że metoda Simpsona trwa najdłużej, ale daje lepszą dokładność. 

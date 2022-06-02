@@ -7,6 +7,7 @@ load P_ref
 a = 0;
 b = 5;
 
+%
 blad_prostkaty = [];
 blad_trapezy = [];
 blad_simpson = [];
@@ -14,9 +15,9 @@ blad_mc = [];
 
 %wykres funkcji awaria
 
-vals = []
+vals = [];
 for i = 1:20
-    vals(end+1) = awaria(i)
+    vals(end+1) = awaria(i);
 end
 
 plot(vals)
@@ -27,9 +28,9 @@ for N = N_arr
     dx = (b-a)/N; % szerokosc prostokata
     wynik_prostokaty = 0;
 
-    for i = 0:N
-        x_1 = a+dx*i;
-        x_2 = a+dx*(i+1);
+    for i = 1:N
+        x_1 = a+dx*(i-1);
+        x_2 = a+dx*i;
         x_mid = (x_1 + x_2)/2;
         wynik_prostokaty = wynik_prostokaty + awaria(x_mid)*dx;
     end
@@ -42,9 +43,9 @@ for N = N_arr
     dx = (b-a)/N; % wysokosc trapezu
     wynik_trapezy = 0;
 
-    for i = 0:N
-        x_1 = a+dx*i;
-        x_2 = a+dx*(i+1);
+    for i = 1:N
+        x_1 = a+dx*(i-1);
+        x_2 = a+dx*i;
         wynik_trapezy = wynik_trapezy + (awaria(x_1) + awaria(x_2))*dx/2;
     end
     blad_trapezy(end+1) = abs(wynik_trapezy - P_ref);
@@ -57,9 +58,9 @@ for N = N_arr
     dx = (b-a)/N; % szerokosc przedziału
     wynik_simpson = 0;
 
-    for i = 0:N
-        x_1 = a + dx*i;
-        x_2 = a + dx*(i+1);
+    for i = 1:N
+        x_1 = a + dx*(i-1);
+        x_2 = a + dx*i;
         x_mid = (x_1 + x_2)/2;
         wynik_simpson = wynik_simpson + dx/6*(awaria(x_1) + 4*awaria(x_mid) + awaria(x_2));
     end
@@ -72,7 +73,7 @@ fmax = awaria(b);
 fmin = 0;
 
 ydif = fmax - fmin;
-xdif = b-a
+xdif = b-a;
 
 for N = N_arr
     area = xdif*ydif;
@@ -98,9 +99,9 @@ loglog(N_arr, blad_mc);
 hold off
 title("Błąd całkowania w różnych metodach");
 ylabel("Wartość błędu");
-xlabel("Licbza przedziałów");
-legend("Metoda prostokątów", "Metoda trapezów", "Metoda Simpsona", "Metoda Monte Carlo");
-saveas(gcf, 'blad_calkowania.png');
+xlabel("Licbza przedziałów (losowanych punktów dla Monte Carlo)");
+legend({"Metoda prostokątów", "Metoda trapezów", "Metoda Simpsona", "Metoda Monte Carlo"}, 'Location','southwest');
+saveas(gcf, 'blad_calkowania_184531.png');
 
 
 
@@ -176,5 +177,6 @@ figure("name", "Czas wykonania dla N=" +N);
 labels = categorical({'Prostokąty', 'Trapezy', 'Simpson', 'Monte Carlo'});
 labels = reordercats(labels, {'Prostokąty', 'Trapezy', 'Simpson', 'Monte Carlo'});
 bar(labels , [czas_p, czas_t, czas_s, czas_mc]);
-title("name", "Czas wykonania dla N=" +N);
+title("Czas wykonania dla N=" +N);
 ylabel("Czas działania [s]");
+saveas(gcf, 'czas_działania_184531.png');

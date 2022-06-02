@@ -26,8 +26,20 @@
     W reazlizacji zadania skorzystałem z biblioteki matplotlib do rysowania wykresów oraz modułu os do pobierania informacji o plikach w folderze.
 
 \section{Ogólne założenia}
-    Liczba n oznaczać będzie liczbę węzłów interpolacji, a więc przedziałów interpolacji będzie n-1.
-\newpage
+    Interpolacja pozwala na wyznaczenie funkjci na podstawie pewnej liczby punktów, które do niej należą. W metodach, takich jak metoda wielomianowa i
+    metoda Lagrange'a, korzystamy z właśności, że n+1 punktów pozwala nam jednoznacznie wyznaczyć wielomian n-tego stopnia przechodzą przez te
+    punkty. Funkcja będąca wynikiem interpolacji będzie zatem wielomianem - co niekoniecznie musi być zgodne z właściwościami oryginalnej funkcji.
+
+    \noindent Główną wadą metod interpolacji przy użyciu wielomianów jest efekt Rungego, który można zaobserwować przy interpolacji wielomianami wysokiego stopnia.
+    Powoduje on oscylacje na krańcach przedziału interpolacji. Pojawia się więc problem: mało punktów, mała dokładność - dużo punktów, efekt Rungego, jak zatem dobrać liczbę węzłów interpolacji?
+    Rozwiązaniem tego problemu jest interpolacja lokalana wielomianami niskiego stopnia, co pozwala uzyskać dużą dokładność i uniknąć efektu Rungego.
+
+    \noindent Interpolacje w taki właśnie sposób realizuje metoda funkcji sklejanych - każdy przedział jest interpolowany wielomianem 3 stopnia. 
+    Wymaga ona jednak rozwiązania układu rówań liniowych, co sprawia że jest bardziej kosztowna obliczeniowo i czasowo niż metody wykorzystujące 
+    wielomiany.
+    
+    \noindent W mojej implementacji parametr n oznacza liczbę węzłów interpolacji, a co za tym idzie, funkcja interpolowana będzie w n-1 przedziłach.
+    Układ rówań w metodzie funkcji sklejanych rozwiązuje metodą faktoryzacji LU z pivotinigiem, udotsępnioną przez prowadzącego na stronie kursu.
 \section{Metoda Lagrange'a}
     Metoda Lagrange'a korzysta z faktu, że n+1 punktów definiuje jednoznacznie wielomian n-tego stopnia. 
     Wartość funkcji interpolującej w dowolnym punkcie x wynosi:
@@ -42,9 +54,8 @@
 
     \noindent Zaletą tej metody jest fakt, że nie trzeba tworzyć i rozwiązywać układu równań, co może być kosztowne obliczeniowo.
     Największą jej wadą jest natomiast efekt Rungego, który pojawia się przy interpolacji równo-odległych punktów przy użyciu wielomianów
-    wysokiego stopnia. Efekt Rungego polega na pojawianiu się oscylacji na krańcach przedziału interpolacji. Zaczyna być widoczny dla n = 10,
-    a wraz ze wzrostem n, oscylacje stają się coraz większe.
-
+    wysokiego stopnia. Zaczyna być widoczny dla n = 10, a wraz ze wzrostem n oscylacje stają się coraz większe.
+    \newpage
     \begin{figure}[h]
         \centering
         \begin{subfigure}{.5\textwidth}
@@ -122,73 +133,111 @@
     Lagrange'a, ponieważ występujący efekt Rungego znacznie pogorszył czytelność wykresu)
     \begin{figure}[h]
         \centering
-        \begin{subfigure}{.33\textwidth}
+        \begin{minipage}{.33\textwidth}
             \centering
             \includegraphics[width=\linewidth]{plot_10_points_PG_Gdynia_Chwarzno.png}
             \label{fig:sub1}
-        \end{subfigure}
-        \begin{subfigure}{.33\textwidth}
+        \end{minipage}%
+        \begin{minipage}{.33\textwidth}
           \centering
           \includegraphics[width=\linewidth]{plot_10_points_Główna_Grań_Karkonoszy.png}
           \label{fig:sub2}
-        \end{subfigure}%
-        \begin{subfigure}{.33\textwidth}
+        \end{minipage}%
+        \begin{minipage}{.33\textwidth}
           \centering
           \includegraphics[width=\linewidth]{plot_10_points_Tatry.png}
           \label{fig:sub3}
-        \end{subfigure}
+        \end{minipage}
         \caption{Przykłady dla n = 10}
         \label{fig:test}
     \end{figure}
     \begin{figure}[h]
         \centering
-        \begin{subfigure}{.33\textwidth}
+        \begin{minipage}{.33\textwidth}
             \centering
             \includegraphics[width=\linewidth]{plot_50_points_PG_Gdynia_Chwarzno.png}
             \label{fig:sub1}
-        \end{subfigure}
-        \begin{subfigure}{.33\textwidth}
+        \end{minipage}%
+        \begin{minipage}{.33\textwidth}
           \centering
           \includegraphics[width=\linewidth]{plot_50_points_Główna_Grań_Karkonoszy.png}
           \label{fig:sub2}
-        \end{subfigure}%
-        \begin{subfigure}{.33\textwidth}
+        \end{minipage}%
+        \begin{minipage}{.33\textwidth}
           \centering
           \includegraphics[width=\linewidth]{plot_50_points_Tatry.png}
           \label{fig:sub3}
-        \end{subfigure}
+        \end{minipage}
         \caption{Przykłady dla n = 50}
         \label{fig:test}
     \end{figure}
     \begin{figure}[h]
         \centering
-        \begin{subfigure}{.33\textwidth}
+        \begin{minipage}{.33\textwidth}
             \centering
             \includegraphics[width=\linewidth]{plot_100_points_PG_Gdynia_Chwarzno.png}
             \label{fig:sub1}
-        \end{subfigure}
-        \begin{subfigure}{.33\textwidth}
+        \end{minipage}%
+        \begin{minipage}{.33\textwidth}
           \centering
           \includegraphics[width=\linewidth]{plot_100_points_Główna_Grań_Karkonoszy.png}
           \label{fig:sub2}
-        \end{subfigure}%
-        \begin{subfigure}{.33\textwidth}
+        \end{minipage}%
+        \begin{minipage}{.33\textwidth}
           \centering
           \includegraphics[width=\linewidth]{plot_100_points_Tatry.png}
           \label{fig:sub3}
-        \end{subfigure}
+        \end{minipage}
         \caption{Przykłady dla n = 100}
         \label{fig:test}
     \end{figure}
 
     Jak widać na wykresach, interpolacja splineami daje dobre wyniki dla n = 10, a dla wysokich n otrzymujemy prawie dokładny wykres funkcji.
-
+\newpage
 \section{Analiza wyników}
 \subsection{Wpływ liczby punktów węzłowych na wynik}
     Analizując wyniki obu metod, możemy zauważyć, że im więcej punktów tym dokładniejsza interpolacja. 
     Metoda Lagrang'e nie daje zadowalających rezulatatów dla większych ilości punktów pomiarowych,
     jest to spowodowane występowaniem efektu Rungego. Większa ilość punktów nie jest też bez znaczenia dla metody interpolacji
-    funckjami sklejanymi. Wymaga ona rozwiązania układu równań, a koszt tej operacji jest wprost proporcjonalny do liczby zmiennych (faktoryzacja LU - $O(n^3)$).
-    
+    funkcjami sklejanymi. Wymaga ona rozwiązania układu równań, a koszt tej operacji jest wprost proporcjonalny do liczby zmiennych (faktoryzacja LU - $O(n^3)$).
+\subsection{Korekcja błędów}
+    Zależnie od umiejscowienia węzłów interpolacji, algorytmy mogą zniwelować błędy GPS. Widać to na poniższym przykładzie.
+    \begin{figure}[h]
+      \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{plot_100_points_Rysy.png}
+        \captionof{figure}{Błąd został skorygowany}
+        \label{fig:test1}
+      \end{minipage}%
+      \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{plot_50_points_Rysy.png}
+        \captionof{figure}{Błąd widoczny na wyniku interpolacji}
+        \label{fig:test2}
+      \end{minipage}
+    \end{figure}
 
+    \noindent Jak widać zdolność do korekcji zależy jedynie od doboru punktów, a nie od gęstości ich rozmieszczenia.
+    Na powyższym przykładzie widać, że dla teoretycznie mniej dokładnej interpolacji w 50 punktach błąd jest widoczny,
+    a dla 100 węzłów, punkty zostały rozmieszczone w taki sposób, że błąd ma znaczący wpływ na wynik interpolacji.
+  \newpage
+  \subsection{Wpływ charakteru trasy na wyniki}
+    Przy interpolacji z większą ilością pnktów węzłowych, charakter trasy nie wpływa na wyniki algorytmu (mówimy o algorytmie funkcji sklejanych).
+    Dla n równego 5 oraz 10, algorytm daje zadowalające przybliżenie dla tras mało dynamicznych, a w przypadku tras o dużych i szybkich różnicach wysokości,
+    niektóre ekstrema lokalne zostają pominięte. Analizujemy wykres interpolacji uzyskany w metodzie funkcji sklejanych, ponieważ w jej przypadku
+    nie występuje efekt Rungego.
+    \begin{figure}[h]
+      \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{plot_10_points_PG_Gdynia_Chwarzno.png}
+        \captionof{figure}{Trasa mało dynamiczna - dobry wynik dla małej liczby punktów interpolacji}
+        \label{fig:test1}
+      \end{minipage}%
+      \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{plot_10_points_Gdynia_Chwarzno_Osłonino_Gdynia_Chwarzno.png}
+        \captionof{figure}{Trasa bardziej dynamiczna - część ekstremów została pominięta}
+        \label{fig:test2}
+      \end{minipage}
+    \end{figure}
 \end{document}
