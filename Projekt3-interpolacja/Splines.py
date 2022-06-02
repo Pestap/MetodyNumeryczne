@@ -1,5 +1,3 @@
-import numpy as np
-import scipy.linalg as scipy
 from LU import LU
 
 def find_section_number(x, x_arr):

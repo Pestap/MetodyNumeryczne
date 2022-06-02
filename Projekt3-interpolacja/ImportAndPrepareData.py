@@ -42,18 +42,25 @@ def prepareData(filename, n, random_points=False):
     interpolation_points = []
     if random_points:
         #dodajemy pierwszy punkt
-
         interpolation_points.append((points[0][2], 0))
-        avaliable_points =copy.deepcopy(points)
-        for i in range(n-2):
+        # kopia tablicy punktów
+        avaliable_points = copy.deepcopy(points)
+
+        for i in range(n-2): # losujemy n-2 punkty
+            # losujemy index (poza pierwszym i ostatnim)
+
             rand_point_idx = random.randint(1, len(avaliable_points)-2)
-            point_to_add = avaliable_points.pop(rand_point_idx) # pobieramy element do wstawienia
-            point_idx = 0
+            point_to_add = avaliable_points.pop(rand_point_idx) # pobieramy element do wstawienia i usuwamy
+            point_idx = points.index(point_to_add)
+
             #wyszukujemy indeks w oryginalnej tablicy punktów
-            for idx, point in enumerate(points):
-                if point == point_to_add:
-                    point_idx = idx
+            #for idx, point in enumerate(points):
+            #    if point == point_to_add:
+            #        point_idx = idx
+            #        break
             interpolation_points.append((point_to_add[2], point_idx))
+
+
         # dodajemy ostatni punkt
         interpolation_points.append((points[-1][2], len(points)-1))
     else:
@@ -71,6 +78,9 @@ def prepareData(filename, n, random_points=False):
 
     interpolation_points.sort(key=lambda x: x[1])
 
+    if not (len(set(interpolation_points)) == len(interpolation_points)):
+        for i in interpolation_points:
+            print(i)
 
     #rozpakowujemy punkty
     #pobieramy wartosci funkcji dla wszystkich punktów
